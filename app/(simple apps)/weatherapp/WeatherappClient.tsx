@@ -43,34 +43,34 @@ const WeatherappClient: React.FC = () => {
 
     try {
       const response = await fetch(`/weatherapp/api/weather?city=${encodeURIComponent(cityToSearch)}`);
-    if (!response.ok) {
-      if (response.status === 404) {
-        throw new Error('City not found.');
-      } else {
-        throw new Error('Failed to fetch weather data. Please try again later.');
+      if (!response.ok) {
+        if (response.status === 404) {
+          throw new Error('City not found.');
+        } else {
+          throw new Error('Failed to fetch weather data. Please try again later.');
+        }
       }
-    }
-      const data: WeatherData = await response.json();
-      setWeatherData(data);
+        const data: WeatherData = await response.json();
+        setWeatherData(data);
 
-      // Set weather icon based on the icon code
-      if (data.weatherIcon === "01d" || data.weatherIcon === "01n") {
-        setWicon(clear_icon);
-      } else if (data.weatherIcon === "02d" || data.weatherIcon === "02n") {
-        setWicon(cloud_icon);
-      } else if (data.weatherIcon === "03d" || data.weatherIcon === "03n" || 
-                 data.weatherIcon === "04d" || data.weatherIcon === "04n") {
-        setWicon(drizzle_icon);
-      } else if (data.weatherIcon === "09d" || data.weatherIcon === "09n" ||
-                 data.weatherIcon === "10d" || data.weatherIcon === "10n") {
-        setWicon(rain_icon);
-      } else if (data.weatherIcon === "13d" || data.weatherIcon === "13n") {
-        setWicon(snow_icon);
-      } else {
-        setWicon(clear_icon);
-      }
+        // Set weather icon based on the icon code
+        if (data.weatherIcon === "01d" || data.weatherIcon === "01n") {
+          setWicon(clear_icon);
+        } else if (data.weatherIcon === "02d" || data.weatherIcon === "02n") {
+          setWicon(cloud_icon);
+        } else if (data.weatherIcon === "03d" || data.weatherIcon === "03n" || 
+                  data.weatherIcon === "04d" || data.weatherIcon === "04n") {
+          setWicon(drizzle_icon);
+        } else if (data.weatherIcon === "09d" || data.weatherIcon === "09n" ||
+                  data.weatherIcon === "10d" || data.weatherIcon === "10n") {
+          setWicon(rain_icon);
+        } else if (data.weatherIcon === "13d" || data.weatherIcon === "13n") {
+          setWicon(snow_icon);
+        } else {
+          setWicon(clear_icon);
+        }
 
-      setError("");
+        setError("");
     } catch (error: any) {
       console.error("Error fetching weather data:", error);
       setWeatherData({
