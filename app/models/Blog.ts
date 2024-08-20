@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
-const BlogSchema = new Schema(
+const blogSchema = new Schema(
     {
         id: {
             type: Number,
@@ -24,6 +24,6 @@ const BlogSchema = new Schema(
 )
 
 
-const BookModel = mongoose.models.BookModel || mongoose.model("BookModel", BlogSchema)
+const Blog = mongoose.models.Blog || mongoose.model("Blog", blogSchema)
 
-export default BookModel
+export default Blog
