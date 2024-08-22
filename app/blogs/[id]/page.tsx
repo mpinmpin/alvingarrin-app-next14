@@ -1,6 +1,12 @@
 // app/blogs/[id]/page.tsx
 
 import { notFound } from 'next/navigation';
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Blog",
+    description: "The blog",
+  };
 
 async function getData(id: string) {
   // const res = await fetch(`https://alvingarrin.vercel.app/blogs/api/${id}`);

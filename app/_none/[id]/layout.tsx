@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import Page from "./page";  
+import Page from "../../blogs/[id]/page";  
 
 export const metadata: Metadata = {
     title: "Blog",

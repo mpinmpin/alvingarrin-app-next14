@@ -2,12 +2,12 @@
 
 import { useState } from "react";
 
-interface BMICalculatorState {
-    height: number;
-    weight: number;
-    bmi: number | null;
-    errorMessage: string;
-  }
+// interface BMICalculatorState {
+//     height: number;
+//     weight: number;
+//     bmi: number | null;
+//     errorMessage: string;
+//   }
   
 const BMICalculator = () => {
     const [height, setHeight] = useState<number>(180);

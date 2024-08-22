@@ -1,6 +1,12 @@
 // app/blogs/page.tsx
 
 import Link from 'next/link';
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Blogs",
+    description: "Lists of blogs",
+  };
 
 async function getBlogs() {
   try {
