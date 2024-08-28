@@ -8,11 +8,13 @@ import { useState } from "react";
 //     bmi: number | null;
 //     errorMessage: string;
 //   }
+
+type bmiType = number | null
   
-const BMICalculator = () => {
+const BMICalculator: React.FC = () => {
     const [height, setHeight] = useState<number>(180);
     const [weight, setWeight] = useState<number>(70);
-    const [bmi, setBMI] = useState<number | null>(null);
+    const [bmi, setBMI] = useState<bmiType>(null);
     const [errorMessage, setErrorMessage] = useState<string>('');
 
     const calculateBMI = () => {
@@ -22,8 +24,8 @@ const BMICalculator = () => {
             return;
           }
 
-        const heightInInches = height / 100;
-        const calculatedBMI = (weight / (heightInInches * heightInInches));
+        const heightInCm = height / 100;
+        const calculatedBMI = (weight / (heightInCm * heightInCm));
         
         setBMI(parseFloat(calculatedBMI.toFixed(2)));
         setErrorMessage('');

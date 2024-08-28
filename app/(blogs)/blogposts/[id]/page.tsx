@@ -33,10 +33,13 @@ export default async function BlogDetails({ params }: { params: { id: string } }
   const blog = await getData(params.id);
 
   return (
-    <div>
-      <h2>{blog.title}</h2>
-      <p>Written by {blog.author}</p>
-      <div>{blog.body}</div>
-    </div>
+    <main>
+      <div>
+        <h2>{blog.title}</h2>
+        <p>Written by {blog.author}</p>
+        <div>{blog.body}</div>
+      </div>
+    </main>
+    
   );
 }

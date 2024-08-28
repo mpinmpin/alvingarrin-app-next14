@@ -2,17 +2,20 @@
 
 import React, { useState } from 'react';
 
-interface CalculatorState {
-    displayValue: string;
-    firstValue: number | null;
-    operator: string | null;
-    waitingForSecondValue: boolean;
-  }
+// interface CalculatorState {
+//     displayValue: string;
+//     firstValue: number | null;
+//     operator: string | null;
+//     waitingForSecondValue: boolean;
+//   }
 
-const Calculator = () => {
+type firstValueType = number | null
+type operatorType = string | null
+
+const Calculator: React.FC = () => {
     const [displayValue, setDisplayValue] = useState<string>('0');
-    const [firstValue, setFirstValue] = useState<number | null>(null);
-    const [operator, setOperator] = useState<string | null>(null);
+    const [firstValue, setFirstValue] = useState<firstValueType>(null);
+    const [operator, setOperator] = useState<operatorType>(null);
     const [waitingForSecondValue, setWaitingForSecondValue] = useState<boolean>(false);
   const inputDigit = (digit: number) => {
     if (waitingForSecondValue) {
