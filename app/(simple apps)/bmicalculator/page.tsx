@@ -32,30 +32,30 @@ const BMICalculator: React.FC = () => {
     };
 
     return (
-         <main>
-            <div className="bmi">
-                <h2>BMI Calculator</h2>
-                <div>
-                    <label>Weight (kg):</label>
-                    <input
-                    type="number"
-                    value={weight}
-                    onChange={(e) => setWeight(parseFloat(e.target.value))}
-                    />
-                </div>
-                <div>
-                    <label>Height (cm):</label>
-                    <input
-                    type="number"
-                    value={height}
-                    onChange={(e) => setHeight(parseFloat(e.target.value))}
-                    />
-                    </div>
-                <button className='button-global' onClick={calculateBMI}>Calculate BMI</button>
-                {errorMessage && <p>{errorMessage}</p>}
-                {bmi && <p>Your BMI is: {bmi}</p>}
-            </div>
-        </main>
+			<main>
+				<div className="bmi">
+						<h2>BMI Calculator</h2>
+						<div>
+								<label>Weight (kg):</label>
+								<input
+								type="number"
+								value={weight}
+								onChange={(e) => setWeight(parseFloat(e.target.value))}
+								/>
+						</div>
+						<div>
+								<label>Height (cm):</label>
+								<input
+								type="number"
+								value={height}
+								onChange={(e) => setHeight(parseFloat(e.target.value))}
+								/>
+								</div>
+						<button className='button-global' onClick={calculateBMI}>Calculate BMI</button>
+						{errorMessage && <p>{errorMessage}</p>}
+						{bmi && <p>Your BMI is: {bmi}</p>}
+				</div>
+			</main>
         
      );
 }

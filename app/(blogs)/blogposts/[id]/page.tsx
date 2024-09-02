@@ -9,8 +9,8 @@ export const metadata: Metadata = {
   };
 
 async function getData(id: string) {
-  // const res = await fetch(`https://alvingarrin.vercel.app/blogs/api/${id}`);
-  const res = await fetch(`http://localhost:3000/blogs/api/${id}`);
+  // const res = await fetch(`https://alvingarrin.vercel.app/blogposts/api/${id}`);
+  const res = await fetch(`http://localhost:3000/blogposts/api/${id}`);
   
   if (!res.ok) {
     notFound();
@@ -20,8 +20,8 @@ async function getData(id: string) {
 }
 
 export async function generateStaticParams() {
-  // const res = await fetch('https://alvingarrin.vercel.app/blogs/api');
-  const res = await fetch('http://localhost:3000/blogs/api');
+  // const res = await fetch('https://alvingarrin.vercel.app/blogposts/api');
+  const res = await fetch('http://localhost:3000/blogposts/api');
   const blogs = await res.json();
  
   return blogs.map((blog: { id: number }) => ({

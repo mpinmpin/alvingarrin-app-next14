@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 async function getBlogs() {
   try {
     // const res = await fetch('https://alvingarrin.vercel.app/blogs/api', { next: { revalidate: 1 } });
-    const res = await fetch('http://localhost:3000/blogs/api', { next: { revalidate: 1 } });
+    const res = await fetch('http://localhost:3000/blogposts/api', { next: { revalidate: 1 } });
     
     if (!res.ok) {
       throw new Error('Failed to fetch data');
