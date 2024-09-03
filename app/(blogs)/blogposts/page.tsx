@@ -1,4 +1,4 @@
-// app/blogs/page.tsx
+// app/blogposts/page.tsx
 
 import Link from 'next/link';
 import { Metadata } from "next";
@@ -38,7 +38,7 @@ export default async function Blogs() {
           <h2>Blogs</h2>
           {blogs.map((blog: { id: string; title: string; author: string }) => (
             <div className="blog-preview" key={blog.id}>
-              <Link href={`/blogs/${blog.id}`}>
+              <Link href={`/blogposts/${blog.id}`}>
                 <h2>{blog.title}</h2>
                 <p>Written by {blog.author}</p>
               </Link>

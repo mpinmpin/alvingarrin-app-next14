@@ -1,4 +1,4 @@
-// app/blogs/[id]/page.tsx
+// app/blogposts/[id]/page.tsx
 
 import { notFound } from 'next/navigation';
 import { Metadata } from "next";
