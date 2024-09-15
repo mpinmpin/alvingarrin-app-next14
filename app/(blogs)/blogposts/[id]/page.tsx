@@ -34,10 +34,12 @@ export default async function BlogDetails({ params }: { params: { id: string } }
 
   return (
     <main>
-      <div>
-        <h2>{blog.title}</h2>
-        <p>Written by {blog.author}</p>
-        <div>{blog.body}</div>
+      <div className="blog-details">
+				<article>
+					<h2>{blog.title}</h2>
+					<p>Written by {blog.author}</p>
+					<div className='blog-paragraph'>{blog.body}</div>
+				</article>
       </div>
     </main>
     

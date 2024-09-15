@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '../../../libs/connectDB';
 import Blog from '../../../models/Blog';
 
@@ -15,4 +15,17 @@ export async function GET() {
       { status: 500 }
     );
   }
+}
+
+//this POST route is under testing
+export async function POST(req:NextRequest) {
+	const { id, title, body, author } = await req.json()
+	await connectDB()
+	await Blog.create({
+			id,
+			title,
+			body,
+			author
+	})
+	return NextResponse.json({message:"New blog post added successfully"})
 }

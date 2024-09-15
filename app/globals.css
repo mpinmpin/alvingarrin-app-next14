@@ -40,7 +40,7 @@ Contents:
 main {
   max-width: 900px;
   margin: 0 auto;
-  padding: 15px;
+  padding: 30px;
 }
 .button-global {
   background: var(--darklimegreen);
@@ -292,7 +292,7 @@ main {
 /* blog details page */
 .blog-details h2 {
   font-size: 20px;
-  color: #9ACD32;
+  color: var(--darklimegreen);
   margin-bottom: 10px;
 }
 .blog-details div {
