@@ -27,41 +27,41 @@ export async function GET(
     }
   }
   
-  export async function OPTIONS(request: NextRequest) {
-    return new NextResponse(null, {
-      status: 204,
-      headers: {
-        'Allow': 'GET'
-      },
-    });
-  }
-  
+export async function OPTIONS(request: NextRequest) {
+	return new NextResponse(null, {
+		status: 204,
+		headers: {
+			'Allow': 'GET'
+		},
+	});
+}
+
 // for updating
 
-  export async function POST(request :NextRequest, { params }: { params: { id: string } }) {
-		const { id } = params
-		const { title, body, author } = await request.json()
-		await connectDB()
-		await Blog.findByIdAndUpdate(id, {
-				id,
-				title,
-				body,
-				author
-		})
-		return NextResponse.json({message:"New blog post added successfully"})
-	}
-  
-  export async function PUT(request: NextRequest) {
-    return methodNotAllowed(request);
-  }
-  
-  export async function DELETE(request: NextRequest) {
-    return methodNotAllowed(request);
-  }
-  
-  function methodNotAllowed(request: NextRequest) {
-    return NextResponse.json(
-      { message: `Method ${request.method} not allowed` },
-      { status: 405 }
-    );
-  }
+export async function POST(request :NextRequest, { params }: { params: { id: string } }) {
+	const { id } = params
+	const { title, body, author } = await request.json()
+	await connectDB()
+	await Blog.findByIdAndUpdate(id, {
+		id,
+		title,
+		body,
+		author
+	})
+	return NextResponse.json({message:"New blog post added successfully"})
+}
+
+export async function PUT(request: NextRequest) {
+	return methodNotAllowed(request);
+}
+
+export async function DELETE(request: NextRequest) {
+	return methodNotAllowed(request);
+}
+
+function methodNotAllowed(request: NextRequest) {
+	return NextResponse.json(
+		{ message: `Method ${request.method} not allowed` },
+		{ status: 405 }
+	);
+}
