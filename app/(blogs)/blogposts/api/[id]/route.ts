@@ -38,7 +38,10 @@ export async function OPTIONS(request: NextRequest) {
 
 // for updating
 
-export async function POST(request :NextRequest, { params }: { params: { id: string } }) {
+export async function POST(
+	request :NextRequest, 
+	{ params }: { params: { id: string } }
+) {
 	const { id } = params
 	const { title, body, author } = await request.json()
 	await connectDB()
