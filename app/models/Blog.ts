@@ -1,25 +1,25 @@
 import mongoose, { Schema } from "mongoose";
 
 const blogSchema = new Schema(
-    {
-        id: {
-            type: Number,
-            required: true
-        },
-        title: {
-            type: String,
-            required: true,
-        },
-        body: {
-            type: String,
-            required: true
-        },
-        author: {
-            type: String,
-            required: true,
-        }
-    }, {
-    timestamps: true
+	{
+		id: {
+			type: Number,
+			required: true
+		},
+		title: {
+			type: String,
+			required: true,
+		},
+		body: {
+			type: String,
+			required: true
+		},
+		author: {
+			type: String,
+			required: true,
+		}
+	}, {
+	timestamps: true
 }
 )
 

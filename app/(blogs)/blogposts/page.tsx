@@ -1,4 +1,5 @@
 // app/blogposts/page.tsx
+import styles from './page.module.css'
 
 import Link from 'next/link';
 import { Metadata } from "next";
@@ -34,10 +35,10 @@ export default async function Blogs() {
           <p>Failed to fetch blogs. Please try again later.</p>
         </div>
       ) : (
-        <div className="blog-list">
+        <div className={styles.BlogList}>
           <h2>Blogs</h2>
           {blogs.map((blog: { id: string; title: string; author: string }) => (
-            <div className="blog-preview" key={blog.id}>
+            <div className={styles.BlogPreview} key={blog.id}>
               <Link href={`/blogposts/${blog.id}`}>
                 <h2>{blog.title}</h2>
                 <p>Written by {blog.author}</p>

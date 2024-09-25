@@ -263,45 +263,7 @@ main {
 /* BLOGS */
 
 
-.blog-list h2{
-  font-size: 25px;
-  color: var(--darklimegreen);
-  padding-bottom: 10px;
-}
-.blog-preview {
-  padding: 10px 0px;
-  margin: 20px 0;
-  border-bottom: 1px solid #fafafa;
-  max-width: 600px;
-}
-.blog-preview:hover {
-  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
-}
-.blog-preview h2 {
-  font-size: 20px;
-  color: var(--darklimegreen);
-  margin-bottom: 8px;
-}
-.blog-preview h2:hover {
-  color: var(--limegreen);
-}
-.blog-preview a{
-  text-decoration: none;
-}
 
-/* blog details page */
-.blog-details h2 {
-  font-size: 20px;
-  color: var(--darklimegreen);
-  margin-bottom: 10px;
-}
-.blog-details div {
-  margin: 20px 0;
-}
-.blog-paragraph {
-  text-align: justify;
-  text-justify: inter-word;
-}
 /* create new blog form */
 .create {
   max-width: 400px;
@@ -324,6 +286,7 @@ main {
   border: 1px solid #ddd;
   box-sizing: border-box;
   display: block;
+	font-family: inherit;
 }
 .create button {
   background: #9ACD32;
@@ -462,114 +425,3 @@ main {
 
 /* WEATHERAPP */
 
-.weather-container {
-  width:  340px;
-  height: 480px;
-  margin: 0 auto;
-  margin-top: 35px;
-  border-radius: 12px; 
-  padding-top: 10px;
-  background: linear-gradient(180deg, var(--limegreen) 20%, var(--darklimegreen) 100%);
-}
-/* Styles for the top bar */
-.top-bar {
-  display: flex; 
-  gap: 14px;
-  justify-content: center; 
-  padding-top: 13px;
-  background: none;
-}
-/* Styles for the city input */
-.top-bar input {
-  display: flex;
-  width: 65%; 
-  height: 30px;
-  border: 1px solid #ccc; 
-  border-radius: 20px; 
-  font-size: 12px; 
-  padding-left: 15px;
-  background: var(--white);
-  color: var(--black);
-}
-/* Styles for the search icon */
-.search-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  width: 35px; 
-  height: 35px; 
-  border-radius: 18px;
-  cursor: pointer; 
-}
-.search-icon img{
-  background: none;
-  width: 12px; 
-  height: 12px; 
-  padding-left: 2px;
-}
-.weather-error-message {
-  padding-top: 5px;
-  background: none;
-  color:rgb(233, 57, 14);
-  font-weight: bold;
-  text-align: center;
-}
-.weather-image {
-  background: none;
-  text-align: center;
-}
-.weather-image img {
-  background: none;
-  width: 170px;
-  height: 170px;
-}
-.weather-temp {
-  font-size: 60px;
-  color: var(--white);
-  font-weight: bold;
-  background: none;
-  text-align: center;
-}
-.weather-location {
-  font-size: 35px;
-  font-weight: bold;
-  background: none;
-  color: var(--white);
-  text-align: center;
-}
-.data-container {
-  margin-top: 10%;
-  display: flex;
-  background: none;
-  justify-content: center;
-  
-}
-.element {
-  display: flex;
-  background: none;
-  text-align: center;
-  gap: 10px;
-}
-.icon {
-  width: 30px;
-  height: 30px;
-  background: none;
-  padding-left: 20px;
-}
-.data {
-  background: none;
-  color: var(--white);
-}
-.humidity-percent {
-  background: none;
-  color: var(--white);
-}
-.wind-rate {
-  background: none;
-  color: var(--white);
-}
-.text {
-  background: none;
-  color: var(--white);
-}

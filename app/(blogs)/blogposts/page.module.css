@@ -1,0 +1,25 @@
+.BlogList h2{
+  font-size: 25px;
+  color: var(--darklimegreen);
+  padding-bottom: 10px;
+}
+.BlogPreview {
+  padding: 10px 0px;
+  margin: 20px 0;
+  border-bottom: 1px solid #fafafa;
+  max-width: 600px;
+}
+.BlogPreview:hover {
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+}
+.BlogPreview h2 {
+  font-size: 20px;
+  color: var(--darklimegreen);
+  margin-bottom: 8px;
+}
+.BlogPreview h2:hover {
+  color: var(--limegreen);
+}
+.BlogPreview a{
+  text-decoration: none;
+}

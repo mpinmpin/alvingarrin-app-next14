@@ -1,0 +1,13 @@
+/* blog details page */
+.BlogDetails h2 {
+  font-size: 20px;
+  color: var(--darklimegreen);
+  margin-bottom: 25px;
+}
+.BlogDetails div {
+  margin: 20px 0;
+}
+.BlogParagraph {
+  text-align: justify;
+  text-justify: inter-word;
+}
