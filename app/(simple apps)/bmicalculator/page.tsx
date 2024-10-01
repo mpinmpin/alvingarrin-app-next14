@@ -1,5 +1,5 @@
 'use client'
-
+import styles from './page.module.css'
 import { useState } from "react";
 
 // interface BMICalculatorState {
@@ -33,7 +33,7 @@ const BMICalculator: React.FC = () => {
 
     return (
 			<main>
-				<div className="bmi">
+				<div className={styles.bmi}>
 						<h2>BMI Calculator</h2>
 						<div>
 								<label>Weight (kg):</label>

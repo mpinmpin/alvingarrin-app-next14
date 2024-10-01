@@ -3,7 +3,7 @@
 
 import WeatherDisplay from './WeatherDisplay';
 import { getWeatherData } from './WeatherData';
-import Button from '../components/Button';
+import Button from '../../components/Button';
 export default async function Page() {
   try {
     const weatherData = await getWeatherData();

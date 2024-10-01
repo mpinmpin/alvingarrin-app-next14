@@ -1,5 +1,6 @@
 'use client'
 
+import styles from './page.module.css'
 import React, { useState } from 'react';
 
 // interface CalculatorState {
@@ -77,28 +78,28 @@ const Calculator: React.FC = () => {
 
   return (
     <main>
-      <div className='bmi'>
+      <div className={styles.calccontainer}>
         <h2>Calculator</h2>
-        <div className="calculator">
+        <div className={styles.calculator}>
             <input type="text" value={displayValue} readOnly />
-            <div className="cbuttons">
-                <button className='button-calc'onClick={() => inputDigit(7)}>7</button>
-                <button className='button-calc'onClick={() => inputDigit(8)}>8</button>
-                <button className='button-calc'onClick={() => inputDigit(9)}>9</button>
-                <button className='button-calc'onClick={() => performOperation('/')}>/</button>
-                <button className='button-calc'onClick={() => inputDigit(4)}>4</button>
-                <button className='button-calc'onClick={() => inputDigit(5)}>5</button>
-                <button className='button-calc'onClick={() => inputDigit(6)}>6</button>
-                <button className='button-calc'onClick={() => performOperation('*')}>*</button>
-                <button className='button-calc'onClick={() => inputDigit(1)}>1</button>
-                <button className='button-calc'onClick={() => inputDigit(2)}>2</button>
-                <button className='button-calc'onClick={() => inputDigit(3)}>3</button>
-                <button className='button-calc'onClick={() => performOperation('+')}>+</button>
-                <button className='button-calc'onClick={() => inputDigit(0)}>0</button>
-                <button className='button-calc'onClick={inputDecimal}>.</button>
-                <button className='button-calc'onClick={() => performOperation('-')}>-</button>
-                <button className='button-calc'onClick={clearDisplay}>AC</button>
-                <button className='button-calc'onClick={() => performOperation('=')}>=</button>
+            <div className={styles.cbuttons}>
+                <button className={styles.button} onClick={() => inputDigit(7)}>7</button>
+                <button className={styles.button} onClick={() => inputDigit(8)}>8</button>
+                <button className={styles.button} onClick={() => inputDigit(9)}>9</button>
+                <button className={styles.button} onClick={() => performOperation('/')}>/</button>
+                <button className={styles.button} onClick={() => inputDigit(4)}>4</button>
+                <button className={styles.button} onClick={() => inputDigit(5)}>5</button>
+                <button className={styles.button} onClick={() => inputDigit(6)}>6</button>
+                <button className={styles.button} onClick={() => performOperation('*')}>*</button>
+                <button className={styles.button} onClick={() => inputDigit(1)}>1</button>
+                <button className={styles.button} onClick={() => inputDigit(2)}>2</button>
+                <button className={styles.button} onClick={() => inputDigit(3)}>3</button>
+                <button className={styles.button} onClick={() => performOperation('+')}>+</button>
+                <button className={styles.button} onClick={() => inputDigit(0)}>0</button>
+                <button className={styles.button} onClick={inputDecimal}>.</button>
+                <button className={styles.button} onClick={() => performOperation('-')}>-</button>
+                <button className={styles.button} onClick={clearDisplay}>AC</button>
+                <button className={styles.button} onClick={() => performOperation('=')}>=</button>
             </div>
         </div>
       </div>

@@ -24,7 +24,7 @@ const Navbar = () => {
 			<nav>
 				<ul className="navbar">
 					<div className="page-title">
-						<Link href="/"><h1>alvingarrin</h1></Link>
+						<Link href="/"><h1>0_0</h1></Link>
 					</div>           
 					<div className="links">
 						<div className="dropdown hideOnMobile">

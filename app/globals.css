@@ -8,11 +8,8 @@ Contents:
 1. Base
 2. Navbar
 3. Sidebar
-4. Blogs
-5. BMI Calculator
 6. Homepage + About + NotFound
-7. Calculator
-8. Weatherapp
+
 
 
 */
@@ -25,7 +22,6 @@ Contents:
   --white: #ffffff; 
   --black: rgb(31, 36, 43);
   --yellow: #f1db0e;
-  
 }
 
 /* base styles */
@@ -262,8 +258,6 @@ main {
 
 /* BLOGS */
 
-
-
 /* create new blog form */
 .create {
   max-width: 400px;
@@ -298,37 +292,6 @@ main {
   margin-top: 8px;
   margin-bottom: 8px;
 }
-.counter {
-  text-align: center;
-}
-
-/* BMI CALCULATOR */
-
-.bmi {
-  max-width: 400px;
-  margin: 0 auto;
-  margin-top: 35px;
-  text-align: center;
-}
-.bmi label {
-  text-align: left;
-  display: block;
-}
-.bmi h2 {
-  font-size: 20px;
-  color: var(--darklimegreen);
-  margin-bottom: 30px;
-  font-weight: bold;
-}
-.bmi input {
-  width: 100%;
-  padding: 6px 10px;
-  margin: 10px 0;
-  border: 1px solid #ddd;
-  box-sizing: border-box;
-  display: block;
-}
-
 
 /* HOMEPAGE + ABOUT + NOTFOUND */
 
@@ -380,48 +343,4 @@ main {
   font-size: 25px;
   font-weight: bold;
 }
-
-/* CALCULATOR */
-
-
-.calculator {
-  width: 300px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  text-align: right;
-  font-size: 24px;
-}
-.calculator input[type="text"] {
-  width: calc(100%);
-  margin-bottom: 10px;
-  padding: 5px;
-  font-size: 24px;
-  border-radius: 4px;
-  border: 2px solid #ccc;
-}
-.cbuttons {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 5px;
-}
-.button-calc {
-  background: var(--darklimegreen);
-  color: var(--white);
-  border: 0;
-  padding: 8px;
-  border-radius: 3px;
-  cursor: pointer;
-}
-.button-calc:hover {
-  background:var(--limegreen);
-}
-.button-calc:active {
-  background:var(--darklimegreen);
-}
-
-
-/* WEATHERAPP */
 

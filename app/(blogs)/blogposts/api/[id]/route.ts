@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import connectDB from '../../../../libs/connectDB';
-import Blog from '../../../../models/Blog';
+import connectDB from '@/libs/connectDB';
+import Blog from '@/models/Blog';
 
 // This code below is migrated from old pages router AND converted into app router version using claude.ai
 export async function GET(

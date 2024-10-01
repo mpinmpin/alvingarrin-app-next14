@@ -1,5 +1,5 @@
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import React from 'react';
 import type { Metadata } from "next";
 import { Quicksand } from "next/font/google";
