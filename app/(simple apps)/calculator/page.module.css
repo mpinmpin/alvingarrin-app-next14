@@ -42,8 +42,20 @@
   cursor: pointer;
 	width: 40px;
 }
+.ACbutton {
+  background: var(--limegreen);
+  color: var(--black);
+  border: 0;
+  padding: 8px;
+  border-radius: 3px;
+  cursor: pointer;
+	width: 40px;
+}
 .button:hover {
   background:var(--limegreen);
+}
+.ACbutton:hover {
+  background:var(--darklimegreen);
 }
 .button:active {
   background:var(--darklimegreen);

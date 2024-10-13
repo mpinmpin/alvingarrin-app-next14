@@ -37,7 +37,12 @@ export default async function Blogs() {
       ) : (
         <div className={styles.BlogList}>
           <h2>Blogs</h2>
-          {blogs.map((blog: { id: string; title: string; author: string }) => (
+          {blogs.map(
+						(blog: {
+							 id: string; 
+							 title: string; 
+							 author: string 
+							}) => (
             <div className={styles.BlogPreview} key={blog.id}>
               <Link href={`/blogposts/${blog.id}`}>
                 <h2>{blog.title}</h2>

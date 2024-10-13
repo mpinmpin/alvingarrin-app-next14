@@ -1,10 +1,3 @@
-// import WeatherappClient from './WeatherappClient';
-
-// export default function Home() {
-//   return <WeatherappClient />;
-// }
-
-
 'use client'
 
 import React, { useState, useEffect } from "react";
@@ -42,8 +35,7 @@ const WeatherappClient: React.FC = () => {
   const [city, setCity] = useState<string>("Depok");
 
   const search = async (searchCity?: string) => {
-    const element = document.getElementsByClassName("cityInput")[0] as HTMLInputElement;
-    const cityToSearch = searchCity || element.value;
+    const cityToSearch = searchCity || city;
     if (cityToSearch === "") {
       setError("Please enter a city name");
       return;
@@ -99,6 +91,10 @@ const WeatherappClient: React.FC = () => {
     }
   };
 
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setCity(event.target.value);
+  };
+
   useEffect(() => {
     search("Depok");
   }, []);
@@ -112,6 +108,7 @@ const WeatherappClient: React.FC = () => {
             className={styles.CityInput}
             placeholder="Search a city..."
             defaultValue={city} 
+            onChange={handleInputChange}
             onKeyPress={handleKeyPress}
           />
           <div className={styles.SearchIcon} onClick={() => search()}>
