@@ -80,7 +80,7 @@ const Navbar = () => {
 						<button className="dropbtn">Blogs
 						</button>
 						<div className="dropdown-content">
-							<Link href="/blogs">Blogs Page</Link>
+							<Link href="/blogposts">Blogs Page</Link>
 							<Link href="/create">Create New Blog</Link>
 						</div>
 					</div>

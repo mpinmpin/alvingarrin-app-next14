@@ -1,6 +1,6 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
 /* 
 
@@ -14,23 +14,21 @@ Contents:
 
 */
 
-/* @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap'); */
-@layer base {
-  :root {
-    --limegreen: rgb(175, 235, 56);
-    --darklimegreen: rgb(127, 175, 31);
-    --white: #ffffff; 
-    --black: rgb(31, 36, 43);
-    --yellow: #f1db0e;
-  }
-}
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
+:root {
+  --limegreen: rgb(175, 235, 56);
+  --darklimegreen: rgb(127, 175, 31);
+  --white: #ffffff; 
+  --black: rgb(31, 36, 43);
+  --yellow: #f1db0e;
+}
 
 /* base styles */
 * {
   margin: 0;
   padding: 0;
-  /* font-family: "Quicksand"; */
+  font-family: "Quicksand";
   color: var(--black);
   background-color: var(--white);
 }
@@ -77,12 +75,12 @@ main {
   padding: 20px;
 }
 
-/* .footer {
+.footer {
   margin-top: 100px;
   text-align: center; 
   padding: 100px 0; 
   font-size: 13px;
-} */
+}
 
 .navbar .page-title h1 {
   font-size: 25px;

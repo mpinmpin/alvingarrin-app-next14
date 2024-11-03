@@ -3,6 +3,8 @@ import styles from './page.module.css'
 
 import Link from 'next/link';
 import { Metadata } from "next";
+import DeleteBlog from "@/components/DeleteBlog";
+
 
 export const metadata: Metadata = {
     title: "Blogs",
@@ -11,15 +13,19 @@ export const metadata: Metadata = {
 
 async function getBlogs() {
   try {
-    // const res = await fetch('https://alvingarrin.vercel.app/blogs/api', { next: { revalidate: 1 } });
-    const res = await fetch('http://localhost:3000/blogposts/api', { next: { revalidate: 1 } });
+    // const res = await fetch('https://alvingarrin.vercel.app/blogs/api', {
+    //   cache: "no-store",
+    // });
+    const res = await fetch('http://localhost:3000/blogposts/api', {
+      cache: "no-store",
+    });
     
     if (!res.ok) {
-      throw new Error('Failed to fetch data');
+      throw new Error('Failed to fetch blog');
     }
     return res.json();
   } catch (error) {
-    console.error('Error fetching data:', error);
+    console.error('Error fetching blog:', error);
     return [];
   }
 }
@@ -46,8 +52,11 @@ export default async function Blogs() {
             <div className={styles.BlogPreview} key={blog.id}>
               <Link href={`/blogposts/${blog.id}`}>
                 <h2>{blog.title}</h2>
-                <p>Written by {blog.author}</p>
               </Link>
+              <div className={styles.BlogPreviewBody}>
+                <p>Written by {blog.author}</p>
+                <DeleteBlog />
+              </div>
             </div>
           ))}
         </div>

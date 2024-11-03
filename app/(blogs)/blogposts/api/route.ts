@@ -29,3 +29,10 @@ export async function POST(req:NextRequest) {
 	})
 	return NextResponse.json({message:"New blog post added successfully"})
 }
+
+export async function DELETE(req:NextRequest) {
+  const id = req.nextUrl.searchParams.get("id");
+  await connectDB();
+  await Blog.findOneAndDelete({id : id});
+  return NextResponse.json({ message: "Topic deleted" }, { status: 200 });
+}

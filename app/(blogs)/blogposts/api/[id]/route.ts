@@ -27,6 +27,23 @@ export async function GET(
     }
   }
   
+// for updating
+
+export async function PUT(
+	request: NextRequest, 
+	{ params }: { params: { id: string } }
+) {
+	const { id } = params;
+	const { title, body, author } = await request.json();
+	await connectDB();
+	await Blog.findByIdAndUpdate(id, { 
+		title,
+		body,
+		author
+	})
+	return NextResponse.json({ message: "Blog updated" }, { status: 200 });
+  }
+  
 export async function OPTIONS(request: NextRequest) {
 	return new NextResponse(null, {
 		status: 204,
@@ -36,26 +53,8 @@ export async function OPTIONS(request: NextRequest) {
 	});
 }
 
-// for updating
-
-export async function POST(
-	request :NextRequest, 
-	{ params }: { params: { id: string } }
-) {
-	const { id } = params
-	const { title, body, author } = await request.json()
-	await connectDB()
-	await Blog.findByIdAndUpdate(id, {
-		id,
-		title,
-		body,
-		author
-	})
-	return NextResponse.json({message:"New blog post added successfully"})
-}
-
-export async function PUT(request: NextRequest) {
-	return methodNotAllowed(request);
+export async function POST(request :NextRequest) {
+		return methodNotAllowed(request);
 }
 
 export async function DELETE(request: NextRequest) {

@@ -2,6 +2,7 @@
   font-size: 25px;
   color: var(--darklimegreen);
   padding-bottom: 10px;
+  font-weight: bold;
 }
 .BlogPreview {
   padding: 10px 0px;
@@ -22,4 +23,8 @@
 }
 .BlogPreview a{
   text-decoration: none;
+}
+.BlogPreviewBody{
+  display: grid;
+  grid-template-columns: 350px 30px;
 }

@@ -104,8 +104,8 @@ const Calculator: React.FC = () => {
             <button className={styles.button} onClick={() => inputDigit(2)}>2</button>
             <button className={styles.button} onClick={() => inputDigit(3)}>3</button>
             <button className={styles.button} onClick={() => performOperation('*')}>*</button>
-            <button className={styles.button} onClick={() => inputDigit(0)}>0</button>
             <button className={styles.button} onClick={inputDecimal}>.</button>
+            <button className={styles.button} onClick={() => inputDigit(0)}>0</button>
             <button className={styles.button} onClick={() => performOperation('+')}>+</button>
             <button className={styles.button} onClick={() => performOperation('-')}>-</button>
             <button className={styles.ACbutton} onClick={clearDisplay}>AC</button>
