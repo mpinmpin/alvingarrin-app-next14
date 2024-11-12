@@ -1,4 +1,5 @@
 // app/blogposts/page.tsx
+
 import styles from './page.module.css'
 
 import Link from 'next/link';
@@ -55,7 +56,7 @@ export default async function Blogs() {
               </Link>
               <div className={styles.BlogPreviewBody}>
                 <p>Written by {blog.author}</p>
-                <DeleteBlog />
+                <DeleteBlog id={blog.id}/>
               </div>
             </div>
           ))}

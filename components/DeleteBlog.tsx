@@ -1,15 +1,33 @@
 "use client";
 
 import { HiOutlineTrash } from "react-icons/hi";
-import {Tooltip} from "@nextui-org/tooltip";
-// import { useRouter } from "next/navigation";
+import { Tooltip } from "@nextui-org/tooltip";
+import { useRouter } from "next/navigation";
 
-export default function DeleteBlog() {
-  const handleDelete = () => {
+export default function DeleteBlog({ id }: { id: string }): JSX.Element {
+  const router = useRouter();
+
+  const handleDelete = async (): Promise<void> => {
     const confirmed = confirm("Are you sure to delete this blog?");
 
     if (confirmed) {
-      console.log("Delete button clicked");
+      try {
+        const res = await fetch(`http://localhost:3000/blogposts/api?id=${id}`, {
+          method: "DELETE"
+        });
+
+        if (res.ok) {
+          router.refresh();
+          // Consider showing a success notification to the user
+        } else {
+          // Handle error, e.g., show an error message to the user
+          console.error("Error deleting blog:", res.statusText);
+        }
+      } catch (error) {
+        // Handle network errors or other exceptions
+        console.error("Error deleting blog:", error);
+        // Show an error message to the user
+      }
     }
   };
 
@@ -31,19 +49,3 @@ export default function DeleteBlog() {
     
   );
 }
-
-//   export default function RemoveBtn({ id }) {
-//     const router = useRouter();
-//     const removeTopic = async () => {
-//       const confirmed = confirm("Are you sure?");
-  
-//       if (confirmed) {
-//         const res = await fetch(`http://localhost:3000/api/topics?id=${id}`, {
-//           method: "DELETE",
-//         });
-  
-//         if (res.ok) {
-//           router.refresh();
-//         }
-//       }
-//     };
