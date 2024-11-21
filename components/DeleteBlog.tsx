@@ -4,6 +4,14 @@ import { HiOutlineTrash } from "react-icons/hi";
 import { Tooltip } from "@nextui-org/tooltip";
 import { useRouter } from "next/navigation";
 
+// interface DeleteBlogProps {
+//   id: string;
+// }
+
+// export default function DeleteBlog({ id }: DeleteBlogProps): JSX.Element {
+//     // ...
+// }
+
 export default function DeleteBlog({ id }: { id: string }): JSX.Element {
   const router = useRouter();
 

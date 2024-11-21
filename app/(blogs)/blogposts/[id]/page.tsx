@@ -36,13 +36,12 @@ export default async function BlogDetails({ params }: { params: { id: string } }
   return (
     <main>
       <div className={styles.BlogDetails}>
-				<article>
-					<h2>{blog.title}</h2>
-					<p>Written by {blog.author}</p>
-					<div className={styles.BlogParagraph}>{blog.body}</div>
-				</article>
+        <article>
+          <h2>{blog.title}</h2>
+          <p>Written by {blog.author}</p>
+          <div className={styles.BlogParagraph}>{blog.body}</div>
+        </article>
       </div>
     </main>
-    
   );
 }
