@@ -1,42 +1,16 @@
-// page.tsx
-'use client'
-
-// import WeatherDisplay from './WeatherDisplay';
-// import { getWeatherData } from './WeatherData';
-// import Button from '@/components/Button';
-// export default async function Page() {
-//   try {
-//     const weatherData = await getWeatherData();
-//     return (
-//       <main>
-// 				<Button>
-//         	Click me!
-//       	</Button>
-//         <h1>Test</h1>
-//         <WeatherDisplay initialWeatherData={weatherData} />
-//       </main>
-//     );
-//   } catch (error) {
-//     return (
-//       <main>
-//         <h1>Error</h1>
-//         <p>{error instanceof Error ? error.message : 'An unknown error occurred'}</p>
-// 			</main>
-//     );
-//   }
-// }
-
 // app/blogposts/page.tsx
+
+import styles from './page.module.css'
 
 import Link from 'next/link';
 import { Metadata } from "next";
 import DeleteBlog from "@/components/DeleteBlog";
 
 
-// export const metadata: Metadata = {
-//     title: "Scratch",
-//     description: "Scratch",
-//   };
+export const metadata: Metadata = {
+    title: "Blogs",
+    description: "Lists of blogs",
+  };
 
 async function getBlogs() {
   try {
@@ -57,12 +31,7 @@ async function getBlogs() {
   }
 }
 
-const handleClick= () => {
-  console.log("clicked")
-}
-
 export default async function Blogs() {
-  
   const blogs = await getBlogs();
 
   return (
@@ -73,7 +42,7 @@ export default async function Blogs() {
           <p>Failed to fetch blogs. Please try again later.</p>
         </div>
       ) : (
-        <div>
+        <div className={styles.BlogList}>
           <h2>Blogs</h2>
           {blogs.map(
 						(blog: {
@@ -81,20 +50,16 @@ export default async function Blogs() {
               title: string; 
               author: string 
 							}) => (
-            <div key={blog.id}>
-              <h1>{blog.id}</h1>
+            <div className={styles.BlogPreview} key={blog.id}>
               <Link href={`/blogposts/${blog.id}`}>
                 <h2>{blog.title}</h2>
               </Link>
-              <div>
+              <div className={styles.BlogPreviewBody}>
                 <p>Written by {blog.author}</p>
-              </div>
-              <div>
-                <p>length: {blogs.length}</p>
+                <DeleteBlog id={blog.id}/>
               </div>
             </div>
           ))}
-          <button className='button-global' onClick={handleClick}>click here</button>
         </div>
       )}
     </div>

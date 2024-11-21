@@ -1,13 +1,8 @@
-// import WeatherappClient from './WeatherappClient';
-
-// export default function Home() {
-//   return <WeatherappClient />;
-// }
-
 'use client'
 
 import React, { useState, useEffect } from "react";
 import Image from 'next/image';
+import styles from './page.module.css'
 
 import search_icon from "@/public/Weatherapp Components/Assets/search.png";
 import clear_icon from "@/public/Weatherapp Components/Assets/clear.png";
@@ -40,8 +35,7 @@ const WeatherappClient: React.FC = () => {
   const [city, setCity] = useState<string>("Depok");
 
   const search = async (searchCity?: string) => {
-    const element = document.getElementsByClassName("cityInput")[0] as HTMLInputElement;
-    const cityToSearch = searchCity || element.value;
+    const cityToSearch = searchCity || city;
     if (cityToSearch === "") {
       setError("Please enter a city name");
       return;
@@ -97,44 +91,49 @@ const WeatherappClient: React.FC = () => {
     }
   };
 
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setCity(event.target.value);
+  };
+
   useEffect(() => {
     search("Depok");
   }, []);
 
   return (
     <main>
-      <div className="weather-container">
-        <div className="top-bar">
+      <div className={styles.WeatherContainer}>
+        <div className={styles.WeatherTopBar}>
           <input
             type="text"
-            className="cityInput"
+            className={styles.CityInput}
             placeholder="Search a city..."
             defaultValue={city} 
+            onChange={handleInputChange}
             onKeyPress={handleKeyPress}
           />
-          <div className="search-icon" onClick={() => search()}>
+          <div className={styles.SearchIcon} onClick={() => search()}>
             <Image src={search_icon} alt="" />
           </div>
         </div>
-        {error && <div className="weather-error-message">{error}</div>}
-        <div className="weather-image">
+        {error && <div className={styles.WeatherErrorMessage}>{error}</div>}
+        <div className={styles.WeatherImage}>
           <Image src={wicon} alt="" />
         </div>
-        <div className="weather-temp">{weatherData.temperature}</div>
-        <div className="weather-location">{weatherData.location}, {weatherData.country}</div>
-        <div className="data-container">
-          <div className="element">
-            <Image src={humidity_icon} alt="" className="icon" />
-            <div className="data">
-              <div className="humidity-percent">{weatherData.humidity}</div>
-              <div className="text">Humidity</div>
+        <div className={styles.WeatherTemp}>{weatherData.temperature}</div>
+        <div className={styles.WeatherLocation}>{weatherData.location}, {weatherData.country}</div>
+        <div className={styles.DataContainer}>
+          <div className={styles.Element}>
+            <Image src={humidity_icon} alt="" className={styles.WeatherIcon} />
+            <div className={styles.WeatherData}>
+              <div className={styles.HumidityPercent}>{weatherData.humidity}</div>
+              <div className={styles.Text}>Humidity</div>
             </div>
           </div>
-          <div className="element">
-            <Image src={wind_icon} alt="" className="icon" />
-            <div className="data">
-              <div className="wind-rate">{weatherData.windSpeed}</div>
-              <div className="text">Wind Speed</div>
+          <div className={styles.Element}>
+            <Image src={wind_icon} alt="" className={styles.WeatherIcon} />
+            <div className={styles.WeatherData}>
+              <div className={styles.WindRate}>{weatherData.windSpeed}</div>
+              <div className={styles.Text}>Wind Speed</div>
             </div>
           </div>
         </div>
