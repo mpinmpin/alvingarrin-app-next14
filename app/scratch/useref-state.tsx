@@ -15,13 +15,11 @@ export default function App() {
   return (
     <main>
       <input
-        className="rounded-sm border border-gray-500 pl-1"
-        placeholder="input anything here"
         type="text"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
       />
-      <h1 className="pl-1 ">Render Count: {count.current}</h1>
+      <h1>Render Count: {count.current}</h1>
     </main>
   );
 }

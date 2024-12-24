@@ -34,7 +34,7 @@ const Navbar = () => {
 							<Link href="/weatherapp">Weather App</Link>
 							<Link href="/calculator">Calculator</Link>
 							<Link href="/bmicalculator">BMI Calculator</Link>
-							{/* <Link href="/counter">Simple Counter</Link> */}
+							<Link href="/clicker">Clicker</Link>
 							</div>
 						</div>
 						<div className="dropdown hideOnMobile">

@@ -1,3 +1,5 @@
+// note: the app flow is written below the code
+
 'use client'
 
 import styles from './page.module.css'
@@ -120,3 +122,10 @@ const Calculator: React.FC = () => {
 };
 
 export default Calculator;
+
+
+// steps:
+// there are three parts of this calc: 
+// 1. Input. 2. Output 3. and the calculator logic behind it
+// Input: 0-9 , +-:x , = , del , AC, and comma
+// Output: display the first number, then second number, then the result
