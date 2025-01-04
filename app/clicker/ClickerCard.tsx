@@ -1,17 +1,23 @@
 "use client";
 
 type ClickerCardProps = {
-  handleClick: () => void
-  label: string
+  className?: string
+  handleClick?: () => void
+  label?: string
+  level?: number
+  cost?: number
 }
 
 const ClickerCard = (props : ClickerCardProps)  => {
   return (
-    <button 
+    <div 
       onClick={props.handleClick}
-      className="rounded-md px-4 py-2 text-white bg-blue-500 hover:bg-blue-600"
-      >{props.label}
-    </button>
+      className={`mx-auto box-border h-20 w-48 p-3 border-2 rounded-lg shadow cursor-pointer ${props.className}`}
+      >
+      <p className="text-xs">Level: {props.level}</p>
+      {props.label}
+      <p className="text-xs">Level up cost: {props.cost}</p>
+    </div>
   )
 }
 
