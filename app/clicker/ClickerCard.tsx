@@ -5,18 +5,18 @@ type ClickerCardProps = {
   handleClick?: () => void
   label?: string
   level?: number
-  cost?: number
+  cost?: number | string
 }
 
 const ClickerCard = (props : ClickerCardProps)  => {
   return (
     <div 
       onClick={props.handleClick}
-      className={`mx-auto box-border h-20 w-48 p-3 border-2 rounded-lg shadow cursor-pointer ${props.className}`}
+      className={`mx-auto box-border h-20 w-48 p-3 border-2 hover:border-slate-300 shadow rounded-lg cursor-pointer ${props.className}`}
       >
       <p className="text-xs">Level: {props.level}</p>
       {props.label}
-      <p className="text-xs">Level up cost: {props.cost}</p>
+      <p className="text-xs">Level up: {props.cost}</p>
     </div>
   )
 }

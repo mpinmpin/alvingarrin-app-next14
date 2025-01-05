@@ -23,7 +23,7 @@ const Clicker: React.FC = () => {
 	const [ninthOpened, setNinthOpened] = useState<boolean>(false)
 	const [tenthOpened, setTenthOpened] = useState<boolean>(false)
 	const [eleventhOpened, setEleventhOpened] = useState<boolean>(false)
-	const [twelvethOpened, setTwelfthOpened] = useState<boolean>(false)
+	const [twelfthOpened, setTwelfthOpened] = useState<boolean>(false)
 
 	const [firstLevel, setFirstLevel] = useState<number>(0)
 	const [secondLevel, setSecondLevel] = useState<number>(0)
@@ -31,13 +31,26 @@ const Clicker: React.FC = () => {
 	const [fourthLevel, setFourthLevel] = useState<number>(0)
 	const [fifthLevel, setFifthLevel] = useState<number>(0)
 	const [sixthLevel, setSixthLevel] = useState<number>(0)
+	const [seventhLevel, setSeventhLevel] = useState<number>(0)
+	const [eighthLevel, setEighthLevel] = useState<number>(0)
+	const [ninthLevel, setNinthLevel] = useState<number>(0)
+	const [tenthLevel, setTenthLevel] = useState<number>(0)
+	const [eleventhLevel, setEleventhLevel] = useState<number>(0)
+	const [twelfthLevel, setTwelfthLevel] = useState<number>(0)
 
-	const[firstCost, setFirstCost] = useState<number>(20)
-	const[secondCost, setSecondCost] = useState<number>(200)
-	const[thirdCost, setThirdCost] = useState<number>(2000)
-	const[fourthCost, setFourthCost] = useState<number>(20000)
-	const[fifthCost, setFifthCost] = useState<number>(200000)
-	const[sixthCost, setSixthCost] = useState<number>(2000000)
+
+	const[firstCost, setFirstCost] = useState<number>(2e1)
+	const[secondCost, setSecondCost] = useState<number>(2e2)
+	const[thirdCost, setThirdCost] = useState<number>(2e3)
+	const[fourthCost, setFourthCost] = useState<number>(2e4)
+	const[fifthCost, setFifthCost] = useState<number>(2e5)
+	const[sixthCost, setSixthCost] = useState<number>(2e6)
+	const[seventhCost, setSeventhCost] = useState<number>(2e7)
+	const[eighthCost, setEighthCost] = useState<number>(2e8)
+	const[ninthCost, setNinthCost] = useState<number>(2e9)
+	const[tenthCost, setTenthCost] = useState<number>(2e10)
+	const[eleventhCost, setEleventhCost] = useState<number>(2e11)
+	const[twelfthCost, setTwelfthCost] = useState<number>(2e12)
 
 	const addCake = () => {
 		setCount(prevCount => prevCount + 1)
@@ -85,22 +98,85 @@ const Clicker: React.FC = () => {
 	}
 
 	const addFourthLevel = () => {
-		if (count >= thirdCost){
+		if (count >= fourthCost){
 			setFourthLevel(prevLevel => prevLevel + 1)
 			setSpeed(prevSpeed => prevSpeed + 1000)
 			setCount(prevCount => prevCount - fourthCost)
-			setFourthCost(prevCost => prevCost + 20000)
+			setFourthCost(prevCost => prevCost + 2e4)
 		}
 	}
 
 	const addFifthLevel = () => {
-		if (count >= thirdCost){
+		if (count >= fifthCost){
 			setFifthLevel(prevLevel => prevLevel + 1)
-			setSpeed(prevSpeed => prevSpeed + 10000)
+			setSpeed(prevSpeed => prevSpeed + 1e4)
 			setCount(prevCount => prevCount - fifthCost)
-			setFifthCost(prevCost => prevCost + 200000)
+			setFifthCost(prevCost => prevCost + 2e5)
 		}
 	}
+
+	const addSixthLevel = () => {
+		if (count >= sixthCost){
+			setSixthLevel(prevLevel => prevLevel + 1)
+			setSpeed(prevSpeed => prevSpeed + 1e5)
+			setCount(prevCount => prevCount - sixthCost)
+			setSixthCost(prevCost => prevCost + 2e6)
+		}
+	}
+
+	const addSeventhLevel = () => {
+		if (count >= seventhCost){
+			setSeventhLevel(prevLevel => prevLevel + 1)
+			setSpeed(prevSpeed => prevSpeed + 1e6)
+			setCount(prevCount => prevCount - seventhCost)
+			setSeventhCost(prevCost => prevCost + 2e7)
+		}
+	}
+
+	const addEighthLevel = () => {
+    if (count >= eighthCost) {
+        setEighthLevel(prevLevel => prevLevel + 1)
+        setSpeed(prevSpeed => prevSpeed + 1e7)
+        setCount(prevCount => prevCount - eighthCost)
+        setEighthCost(prevCost => prevCost + 2e8)
+    }
+}
+
+const addNinthLevel = () => {
+    if (count >= ninthCost) {
+        setNinthLevel(prevLevel => prevLevel + 1)
+        setSpeed(prevSpeed => prevSpeed + 1e8)
+        setCount(prevCount => prevCount - ninthCost)
+        setNinthCost(prevCost => prevCost + 2e9)
+    }
+}
+
+const addTenthLevel = () => {
+    if (count >= tenthCost) {
+        setTenthLevel(prevLevel => prevLevel + 1)
+        setSpeed(prevSpeed => prevSpeed + 1e9)
+        setCount(prevCount => prevCount - tenthCost)
+        setTenthCost(prevCost => prevCost + 2e10)
+    }
+}
+
+const addEleventhLevel = () => {
+    if (count >= eleventhCost) {
+        setEleventhLevel(prevLevel => prevLevel + 1)
+        setSpeed(prevSpeed => prevSpeed + 1e10)
+        setCount(prevCount => prevCount - eleventhCost)
+        setEleventhCost(prevCost => prevCost + 2e11)
+    }
+}
+
+const addTwelfthLevel = () => {
+    if (count >= twelfthCost) {
+        setTwelfthLevel(prevLevel => prevLevel + 1)
+        setSpeed(prevSpeed => prevSpeed + 1e11)
+        setCount(prevCount => prevCount - twelfthCost)
+        setTwelfthCost(prevCost => prevCost + 2e12)
+    }
+}
 
 
 	useEffect(() => {
@@ -121,16 +197,60 @@ const Clicker: React.FC = () => {
 		if ( roundedCount >= 100 ) {
 			setSecondOpened(true)
 		}
-		if ( roundedCount >= 1000 ) {
+		if ( roundedCount >= 1e3 ) {
 			setThirdOpened(true)
 		}
-		if ( roundedCount >= 10000 ) {
+		if ( roundedCount >= 1e4 ) {
 			setFourthOpened(true)
 		}
-		if ( roundedCount >= 100000 ) {
+		if ( roundedCount >= 1e5 ) {
 			setFifthOpened(true)
 		}
+		if (roundedCount >= 1e6) {
+			setSixthOpened(true)
+		}
+		if (roundedCount >= 1e7) {
+			setSeventhOpened(true)
+		}
+		if (roundedCount >= 1e8) {
+			setEighthOpened(true)
+		}
+		if (roundedCount >= 1e9) {
+			setNinthOpened(true)
+		}
+		if (roundedCount >= 1e10) {
+			setTenthOpened(true)
+		}
+		if (roundedCount >= 1e11) {
+			setEleventhOpened(true)
+		}
+		if (roundedCount >= 1e12) {
+			setTwelfthOpened(true)
+		}
   }, [count]);
+
+	const formatNumber = (num: number) => {
+		const abbreviations = [
+			{ value: 1e15, symbol: 'quadrillion' },
+			{ value: 1e12, symbol: 'trillion' },
+			{ value: 1e9, symbol: 'billion' },
+			{ value: 1e6, symbol: 'million' },
+			{ value: 1e3, symbol: 'thousand' }
+	];
+
+	for (const { value, symbol } of abbreviations) {
+			if (num >= value) {
+					// Round to 2 decimal places and remove trailing zeros
+					return (num / value).toFixed(3).replace(/\.?0+$/, '') + ' ' + symbol;
+			}
+	}
+
+	return num.toString();
+	}
+
+	const formatedCount = formatNumber(roundedCount)
+	const formatedSpeed = formatNumber(speed)
+
 
 	return (
 		<main>
@@ -173,10 +293,10 @@ const Clicker: React.FC = () => {
 			<div className="mx-auto flex justify-center my-4 w-2/3">
 				<div className="mx-auto border border-black rounded-md shadow overflow-hidden w-5/6 py-2">
 					<div className="flex mx-5">
-						Your snowflake is : { roundedCount } 
+						Your snowflake is : { formatedCount } 
 					</div>
 					<div className="flex mx-5">
-						Growth : { speed } snowflake(s)/s
+						Growth : { formatedSpeed } snowflake(s)/s
 					</div>
 				</div>
 			</div>
@@ -187,7 +307,7 @@ const Clicker: React.FC = () => {
 					<ClickerCard 
 						level = {firstLevel} 
 						label = "Snowflake" 
-						cost = {firstCost}
+						cost = {formatNumber(firstCost)}
 						handleClick={addFirstLevel}
 						/>
 					:
@@ -198,7 +318,7 @@ const Clicker: React.FC = () => {
 					<ClickerCard 
 						level = {secondLevel} 
 						label = "Snowball" 
-						cost = {secondCost}
+						cost = {formatNumber(secondCost)}
 						handleClick={addSecondLevel}
 						/>
 					:
@@ -209,7 +329,7 @@ const Clicker: React.FC = () => {
 					<ClickerCard 
 						level = {thirdLevel} 
 						label = "Icicle" 
-						cost = {thirdCost}
+						cost = {formatNumber(thirdCost)}
 						handleClick={addThirdLevel}
 						/>
 					:
@@ -220,7 +340,7 @@ const Clicker: React.FC = () => {
 					<ClickerCard 
 						level = {fourthLevel} 
 						label = "Gelid Pond" 
-						cost = {fourthCost}
+						cost = {formatNumber(fourthCost)}
 						handleClick={addFourthLevel}
 						/>
 					:
@@ -231,34 +351,89 @@ const Clicker: React.FC = () => {
 					<ClickerCard 
 						level = {fifthLevel} 
 						label = "Regional Hailstorm" 
-						cost = {fifthCost}
+						cost = {formatNumber(fifthCost)}
 						handleClick={addFifthLevel}
 						/>
 					:
 					<ClosedCard></ClosedCard>
 				}
-				<ClickerCard
-					label = "Arctic Iceberg"
-				/>
-				<ClickerCard
-					label = "Antartic Landmass"
-				/>
-				<ClickerCard
-					label = "Frosty Planet"
-				/>
-				<ClickerCard
-					label = "Icy Asteroid Belt"
-				/>
-				<ClickerCard
-					label = "Galactic Ice"
-				/>
-				<ClickerCard
-					label = "Frozen Super Cluster"
-				/>
-				<ClickerCard
-					label = "Glacial Multiverse"
-				/>
-				{/* <ClosedCard></ClosedCard> */}
+				{
+					sixthOpened ? 
+					<ClickerCard 
+						level = {sixthLevel} 
+						label = "Arctic Iceberg" 
+						cost = {formatNumber(sixthCost)}
+						handleClick={addSixthLevel}
+						/>
+					:
+					<ClosedCard></ClosedCard>
+				}
+				{
+					seventhOpened ? 
+					<ClickerCard 
+						level = {seventhLevel} 
+						label = "Antartic Landmass" 
+						cost = {formatNumber(seventhCost)}
+						handleClick={addSeventhLevel}
+						/>
+					:
+					<ClosedCard></ClosedCard>
+				}
+				{
+					eighthOpened ? 
+					<ClickerCard 
+							level = {eighthLevel} 
+							label = "Frosty Planet" 
+							cost = {formatNumber(eighthCost)}
+							handleClick={addEighthLevel}
+							/>
+					:
+					<ClosedCard></ClosedCard>
+				}
+				{
+					ninthOpened ? 
+					<ClickerCard 
+							level = {ninthLevel} 
+							label = "Icy Asteroid Belt" 
+							cost = {formatNumber(ninthCost)}
+							handleClick={addNinthLevel}
+							/>
+					:
+					<ClosedCard></ClosedCard>
+				}
+				{
+					tenthOpened ? 
+					<ClickerCard 
+							level = {tenthLevel} 
+							label = "Cryogalaxy" 
+							cost = {formatNumber(tenthCost)}
+							handleClick={addTenthLevel}
+							/>
+					:
+					<ClosedCard></ClosedCard>
+				}
+				{
+					eleventhOpened ? 
+					<ClickerCard 
+							level = {eleventhLevel} 
+							label = "Frozen Super Cluster" 
+							cost = {formatNumber(eleventhCost)}
+							handleClick={addEleventhLevel}
+							/>
+					:
+					<ClosedCard></ClosedCard>
+				}
+				{
+					twelfthOpened ? 
+					<ClickerCard 
+							level = {twelfthLevel} 
+							label = "Glacial Multiverse" 
+							cost = {formatNumber(twelfthCost)}
+							handleClick={addTwelfthLevel}
+							/>
+					:
+					<ClosedCard></ClosedCard>
+				}
 			</div>
 			
 				
