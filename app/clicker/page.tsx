@@ -1,6 +1,7 @@
 'use client'
 
-import { useState , useEffect } from "react";
+import { useState , useEffect, useRef } from "react";
+
 import ClickerButton from "./ClickerButton";
 import ClickerCard from "./ClickerCard";
 import ClosedCard from "./ClosedCard";
@@ -8,9 +9,13 @@ import ClosedCard from "./ClosedCard";
 const Clicker: React.FC = () => {
 	
 	const [renderCount, setRenderCount] = useState<number>(0)
-	const [count, setCount] = useState<number>(0)
-	const [speed, setSpeed] = useState<number>(0)
 	const [isHidden, setHidden] = useState<boolean>(true)
+
+
+	const [count, setCount] = useState<number>(0);
+	const countRef = useRef<number>(0);
+
+	const [speed, setSpeed] = useState<number>(0)
 
 	const [firstOpened, setFirstOpened] = useState<boolean>(false)
 	const [secondOpened, setSecondOpened] = useState<boolean>(false)
@@ -56,19 +61,19 @@ const Clicker: React.FC = () => {
 		setCount(prevCount => prevCount + 1)
 	}
 
-	const addSpeed = () => {
-		setSpeed(prevSpeed => prevSpeed + 1)
-		console.log("Speed Up clicked. Snowflake growth at: ", {speed})
-	}
+	// const addSpeed = () => {
+	// 	setSpeed(prevSpeed => prevSpeed + 1)
+	// 	console.log("Speed Up clicked. Snowflake growth at: ", {speed})
+	// }
 
-	const decSpeed = () => {
-		setSpeed(prevSpeed => prevSpeed - 1)
-		console.log("Speed Down clicked. Snowflake growth at: ", {speed})
-	}
+	// const decSpeed = () => {
+	// 	setSpeed(prevSpeed => prevSpeed - 1)
+	// 	console.log("Speed Down clicked. Snowflake growth at: ", {speed})
+	// }
 
-	const showAcceleratorDisplay = () => {
-		setHidden(!isHidden)
-	}
+	// const showAcceleratorDisplay = () => {
+	// 	setHidden(!isHidden)
+	// }
 
 	const addFirstLevel = () => {
 		if (count >= firstCost){
@@ -140,57 +145,78 @@ const Clicker: React.FC = () => {
         setCount(prevCount => prevCount - eighthCost)
         setEighthCost(prevCost => prevCost + 2e8)
     }
-}
+	}
 
-const addNinthLevel = () => {
-    if (count >= ninthCost) {
-        setNinthLevel(prevLevel => prevLevel + 1)
-        setSpeed(prevSpeed => prevSpeed + 1e8)
-        setCount(prevCount => prevCount - ninthCost)
-        setNinthCost(prevCost => prevCost + 2e9)
+	const addNinthLevel = () => {
+			if (count >= ninthCost) {
+					setNinthLevel(prevLevel => prevLevel + 1)
+					setSpeed(prevSpeed => prevSpeed + 1e8)
+					setCount(prevCount => prevCount - ninthCost)
+					setNinthCost(prevCost => prevCost + 2e9)
+			}
+	}
+
+	const addTenthLevel = () => {
+			if (count >= tenthCost) {
+					setTenthLevel(prevLevel => prevLevel + 1)
+					setSpeed(prevSpeed => prevSpeed + 1e9)
+					setCount(prevCount => prevCount - tenthCost)
+					setTenthCost(prevCost => prevCost + 2e10)
+			}
+	}
+
+	const addEleventhLevel = () => {
+			if (count >= eleventhCost) {
+					setEleventhLevel(prevLevel => prevLevel + 1)
+					setSpeed(prevSpeed => prevSpeed + 1e10)
+					setCount(prevCount => prevCount - eleventhCost)
+					setEleventhCost(prevCost => prevCost + 2e11)
+			}
+	}
+
+	const addTwelfthLevel = () => {
+			if (count >= twelfthCost) {
+					setTwelfthLevel(prevLevel => prevLevel + 1)
+					setSpeed(prevSpeed => prevSpeed + 1e11)
+					setCount(prevCount => prevCount - twelfthCost)
+					setTwelfthCost(prevCost => prevCost + 2e12)
+			}
+	}
+
+  useEffect(() => {
+
+		// console.log(typeof window)
+
+    const savedCount = localStorage.getItem("count");
+    const savedSpeed = localStorage.getItem("speed");
+
+    if (savedCount) {
+      setCount(parseFloat(savedCount));
     }
-}
-
-const addTenthLevel = () => {
-    if (count >= tenthCost) {
-        setTenthLevel(prevLevel => prevLevel + 1)
-        setSpeed(prevSpeed => prevSpeed + 1e9)
-        setCount(prevCount => prevCount - tenthCost)
-        setTenthCost(prevCost => prevCost + 2e10)
+    if (savedSpeed) {
+      setSpeed(parseInt(savedSpeed));
     }
-}
+  }, []);
+	
+	// useEffect(() => {
+	// 	const savedCount = localStorage.getItem('count');
+  //   if (savedCount) {
+  //     setCount(parseFloat(savedCount));
+  //   }
 
-const addEleventhLevel = () => {
-    if (count >= eleventhCost) {
-        setEleventhLevel(prevLevel => prevLevel + 1)
-        setSpeed(prevSpeed => prevSpeed + 1e10)
-        setCount(prevCount => prevCount - eleventhCost)
-        setEleventhCost(prevCost => prevCost + 2e11)
-    }
-}
+	// }, [])
 
-const addTwelfthLevel = () => {
-    if (count >= twelfthCost) {
-        setTwelfthLevel(prevLevel => prevLevel + 1)
-        setSpeed(prevSpeed => prevSpeed + 1e11)
-        setCount(prevCount => prevCount - twelfthCost)
-        setTwelfthCost(prevCost => prevCost + 2e12)
-    }
-}
+	// useEffect(() => {
+	// 	const savedSpeed = localStorage.getItem('speed');
+  //   if (savedSpeed) {
+  //     setSpeed(parseInt(savedSpeed));
+  //   }
+	// }, [])
 
+	let roundedCount: number = parseInt(count.toFixed(0))
 
 	useEffect(() => {
-    let intervalId = setInterval(() => {
-      setCount(count => count + speed/100);
-			console.log('Interval running, speed:', speed);
-    }, 10);
-
-    return () => clearInterval(intervalId);
-  }, [speed]);
-
-	let roundedCount: number = parseFloat(count.toFixed(0))
-
-	useEffect(() => {
+		
 		if ( roundedCount >= 10 ) {
 			setFirstOpened(true)
 		}
@@ -227,25 +253,45 @@ const addTwelfthLevel = () => {
 		if (roundedCount >= 1e12) {
 			setTwelfthOpened(true)
 		}
+
+		// console.log(count)
+
+		
+		// Save current count to localStorage
+		localStorage.setItem('count', roundedCount.toString())
+
   }, [count]);
 
+	useEffect(() => {
+    let intervalId = setInterval(() => {
+
+      setCount(count => count + speed/100);
+			console.log('Interval running, speed:', speed)
+
+			// Save current speed to localStorage
+			localStorage.setItem('speed', speed.toString())
+
+    }, 10);
+
+    return () => clearInterval(intervalId);
+  }, [speed]);
+
+	
+
 	const formatNumber = (num: number) => {
-		const abbreviations = [
-			{ value: 1e15, symbol: 'quadrillion' },
-			{ value: 1e12, symbol: 'trillion' },
-			{ value: 1e9, symbol: 'billion' },
-			{ value: 1e6, symbol: 'million' },
-			{ value: 1e3, symbol: 'thousand' }
-	];
-
-	for (const { value, symbol } of abbreviations) {
-			if (num >= value) {
-					// Round to 2 decimal places and remove trailing zeros
+			const abbreviations = [
+				{ value: 1e15, symbol: 'quadrillion' },
+				{ value: 1e12, symbol: 'trillion' },
+				{ value: 1e9, symbol: 'billion' },
+				{ value: 1e6, symbol: 'million' },
+				{ value: 1e3, symbol: 'thousand' }
+		];
+			for (const { value, symbol } of abbreviations) {
+				if (num >= value) {
 					return (num / value).toFixed(3).replace(/\.?0+$/, '') + ' ' + symbol;
+				}
 			}
-	}
-
-	return num.toString();
+				return num.toString();
 	}
 
 	const formatedCount = formatNumber(roundedCount)
@@ -264,7 +310,7 @@ const addTwelfthLevel = () => {
 					/>
 				</div>
 
-				<div className="my-4 mx-4 flex flex-col">
+				{/* <div className="my-4 mx-4 flex flex-col">
 					<ClickerButton
 						className="bg-violet-500 hover:bg-violet-600 "
 						handleClick = { showAcceleratorDisplay }
@@ -286,7 +332,7 @@ const addTwelfthLevel = () => {
 							/>
 						</div>
 					</div>
-				</div>
+				</div> */}
 
 			</div>
 
@@ -296,7 +342,7 @@ const addTwelfthLevel = () => {
 						Your snowflake is : { formatedCount } 
 					</div>
 					<div className="flex mx-5">
-						Growth : { formatedSpeed } snowflake(s)/s
+						Growth : { formatedSpeed } snowflake(s) per sec
 					</div>
 				</div>
 			</div>
@@ -309,7 +355,7 @@ const addTwelfthLevel = () => {
 						label = "Snowflake" 
 						cost = {formatNumber(firstCost)}
 						handleClick={addFirstLevel}
-						/>
+					/>
 					:
 					<ClosedCard></ClosedCard>
 				}
@@ -320,7 +366,7 @@ const addTwelfthLevel = () => {
 						label = "Snowball" 
 						cost = {formatNumber(secondCost)}
 						handleClick={addSecondLevel}
-						/>
+					/>
 					:
 					<ClosedCard></ClosedCard>
 				}
@@ -331,7 +377,7 @@ const addTwelfthLevel = () => {
 						label = "Icicle" 
 						cost = {formatNumber(thirdCost)}
 						handleClick={addThirdLevel}
-						/>
+					/>
 					:
 					<ClosedCard></ClosedCard>
 				}
@@ -342,7 +388,7 @@ const addTwelfthLevel = () => {
 						label = "Gelid Pond" 
 						cost = {formatNumber(fourthCost)}
 						handleClick={addFourthLevel}
-						/>
+					/>
 					:
 					<ClosedCard></ClosedCard>
 				}
@@ -353,7 +399,7 @@ const addTwelfthLevel = () => {
 						label = "Regional Hailstorm" 
 						cost = {formatNumber(fifthCost)}
 						handleClick={addFifthLevel}
-						/>
+					/>
 					:
 					<ClosedCard></ClosedCard>
 				}
@@ -364,7 +410,7 @@ const addTwelfthLevel = () => {
 						label = "Arctic Iceberg" 
 						cost = {formatNumber(sixthCost)}
 						handleClick={addSixthLevel}
-						/>
+					/>
 					:
 					<ClosedCard></ClosedCard>
 				}
@@ -375,7 +421,7 @@ const addTwelfthLevel = () => {
 						label = "Antartic Landmass" 
 						cost = {formatNumber(seventhCost)}
 						handleClick={addSeventhLevel}
-						/>
+					/>
 					:
 					<ClosedCard></ClosedCard>
 				}
@@ -386,7 +432,7 @@ const addTwelfthLevel = () => {
 							label = "Frosty Planet" 
 							cost = {formatNumber(eighthCost)}
 							handleClick={addEighthLevel}
-							/>
+					/>
 					:
 					<ClosedCard></ClosedCard>
 				}
@@ -397,7 +443,7 @@ const addTwelfthLevel = () => {
 							label = "Icy Asteroid Belt" 
 							cost = {formatNumber(ninthCost)}
 							handleClick={addNinthLevel}
-							/>
+					/>
 					:
 					<ClosedCard></ClosedCard>
 				}
@@ -408,7 +454,7 @@ const addTwelfthLevel = () => {
 							label = "Cryogalaxy" 
 							cost = {formatNumber(tenthCost)}
 							handleClick={addTenthLevel}
-							/>
+					/>
 					:
 					<ClosedCard></ClosedCard>
 				}
@@ -416,10 +462,10 @@ const addTwelfthLevel = () => {
 					eleventhOpened ? 
 					<ClickerCard 
 							level = {eleventhLevel} 
-							label = "Frozen Super Cluster" 
+							label = "Frozen Supercluster" 
 							cost = {formatNumber(eleventhCost)}
 							handleClick={addEleventhLevel}
-							/>
+					/>
 					:
 					<ClosedCard></ClosedCard>
 				}
@@ -430,7 +476,7 @@ const addTwelfthLevel = () => {
 							label = "Glacial Multiverse" 
 							cost = {formatNumber(twelfthCost)}
 							handleClick={addTwelfthLevel}
-							/>
+					/>
 					:
 					<ClosedCard></ClosedCard>
 				}

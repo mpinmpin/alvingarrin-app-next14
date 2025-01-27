@@ -31,10 +31,10 @@ const Navbar = () => {
 							<button className="dropbtn">Simple Apps
 							</button>
 							<div className="dropdown-content">
-							<Link href="/weatherapp">Weather App</Link>
-							<Link href="/calculator">Calculator</Link>
-							<Link href="/bmicalculator">BMI Calculator</Link>
-							<Link href="/clicker">Clicker</Link>
+								<Link href="/weatherapp">Weather App</Link>
+								<Link href="/calculator">Calculator</Link>
+								<Link href="/bmicalculator">BMI Calculator</Link>
+								<Link href="/clicker">Clicker</Link>
 							</div>
 						</div>
 						<div className="dropdown hideOnMobile">

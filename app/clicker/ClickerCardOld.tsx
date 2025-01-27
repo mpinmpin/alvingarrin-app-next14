@@ -16,15 +16,16 @@ const ClickerCard = (props : ClickerCardProps)  => {
     <Tooltip
       content="test"
       placement="bottom"
-      delay={200}
+      delay={100}
       closeDelay={200}
-      className="bg-blue-300 text-black  p-2 h-12 w-16 border-2 rounded-md over overflow-hidden"
+      className="bg-blue-400 text-white  p-2 box-border h-8 w-12 rounded-md over overflow-hidden"
+      // key="primary"
       style={{ fontSize: '10px' }}
     >
       <div 
         onClick={props.handleClick}
-        className={`mx-auto h-20 w-48 p-3 border-2 hover:border-slate-300 shadow rounded-lg cursor-pointer ${props.className}`}
-      >
+        className={`mx-auto box-border h-20 w-48 p-3 border-2 hover:border-slate-300 shadow rounded-lg cursor-pointer ${props.className}`}
+        >
         <p className="text-xs">Level: {props.level}</p>
         {props.label}
         <p className="text-xs">Level up: {props.cost}</p>

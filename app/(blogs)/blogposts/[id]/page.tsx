@@ -37,7 +37,7 @@ export default async function BlogDetails({ params }: { params: { id: string } }
     <main>
       <div className={styles.BlogDetails}>
         <article>
-          <h2>{blog.title}</h2>
+          <h2 className='font-bold'>{blog.title}</h2>
           <p>Written by {blog.author}</p>
           <div className={styles.BlogParagraph}>{blog.body}</div>
         </article>

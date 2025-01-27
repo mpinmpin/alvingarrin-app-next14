@@ -5,8 +5,8 @@ import { useState } from "react";
 type bmiType = number | null
   
 const BMICalculator: React.FC = () => {
-	const [height, setHeight] = useState<number>(180);
-	const [weight, setWeight] = useState<number>(70);
+	const [height, setHeight] = useState<number>(170);
+	const [weight, setWeight] = useState<number>(65);
 	const [bmi, setBMI] = useState<bmiType>(null);
 	const [errorMessage, setErrorMessage] = useState<string>('');
 
