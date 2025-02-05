@@ -75,6 +75,37 @@ const Clicker: React.FC = () => {
 	// 	setHidden(!isHidden)
 	// }
 
+	const resetProgress = () => {
+		setCount(0)
+		setSpeed(0)
+
+		setFirstLevel(0)
+		setSecondLevel(0)
+		setThirdLevel(0)
+		setFourthLevel(0)
+		setFifthLevel(0)
+		setSixthLevel(0)
+		setSeventhLevel(0)
+		setEighthLevel(0)
+		setNinthLevel(0)
+		setTenthLevel(0)
+		setEleventhLevel(0)
+		setTwelfthLevel(0)
+
+		setFirstCost(2e1)
+		setSecondCost(2e2)
+		setThirdCost(2e3)
+		setFourthCost(2e4)
+		setFifthCost(2e5)
+		setSixthCost(2e6)
+		setSeventhCost(2e7)
+		setEighthCost(2e8)
+		setNinthCost(2e9)
+		setTenthCost(2e10)
+		setEleventhCost(2e11)
+		setTwelfthCost(2e12)
+	}
+
 	const addFirstLevel = () => {
 		if (count >= firstCost){
 			setFirstLevel(prevLevel => prevLevel + 1)
@@ -140,53 +171,58 @@ const Clicker: React.FC = () => {
 
 	const addEighthLevel = () => {
     if (count >= eighthCost) {
-        setEighthLevel(prevLevel => prevLevel + 1)
-        setSpeed(prevSpeed => prevSpeed + 1e7)
-        setCount(prevCount => prevCount - eighthCost)
-        setEighthCost(prevCost => prevCost + 2e8)
+			setEighthLevel(prevLevel => prevLevel + 1)
+			setSpeed(prevSpeed => prevSpeed + 1e7)
+			setCount(prevCount => prevCount - eighthCost)
+			setEighthCost(prevCost => prevCost + 2e8)
     }
 	}
 
 	const addNinthLevel = () => {
-			if (count >= ninthCost) {
-					setNinthLevel(prevLevel => prevLevel + 1)
-					setSpeed(prevSpeed => prevSpeed + 1e8)
-					setCount(prevCount => prevCount - ninthCost)
-					setNinthCost(prevCost => prevCost + 2e9)
-			}
+		if (count >= ninthCost) {
+			setNinthLevel(prevLevel => prevLevel + 1)
+			setSpeed(prevSpeed => prevSpeed + 1e8)
+			setCount(prevCount => prevCount - ninthCost)
+			setNinthCost(prevCost => prevCost + 2e9)
+		}
 	}
 
 	const addTenthLevel = () => {
-			if (count >= tenthCost) {
-					setTenthLevel(prevLevel => prevLevel + 1)
-					setSpeed(prevSpeed => prevSpeed + 1e9)
-					setCount(prevCount => prevCount - tenthCost)
-					setTenthCost(prevCost => prevCost + 2e10)
-			}
+		if (count >= tenthCost) {
+			setTenthLevel(prevLevel => prevLevel + 1)
+			setSpeed(prevSpeed => prevSpeed + 1e9)
+			setCount(prevCount => prevCount - tenthCost)
+			setTenthCost(prevCost => prevCost + 2e10)
+		}
 	}
 
 	const addEleventhLevel = () => {
-			if (count >= eleventhCost) {
-					setEleventhLevel(prevLevel => prevLevel + 1)
-					setSpeed(prevSpeed => prevSpeed + 1e10)
-					setCount(prevCount => prevCount - eleventhCost)
-					setEleventhCost(prevCost => prevCost + 2e11)
-			}
+		if (count >= eleventhCost) {
+			setEleventhLevel(prevLevel => prevLevel + 1)
+			setSpeed(prevSpeed => prevSpeed + 1e10)
+			setCount(prevCount => prevCount - eleventhCost)
+			setEleventhCost(prevCost => prevCost + 2e11)
+		}
 	}
 
 	const addTwelfthLevel = () => {
-			if (count >= twelfthCost) {
-					setTwelfthLevel(prevLevel => prevLevel + 1)
-					setSpeed(prevSpeed => prevSpeed + 1e11)
-					setCount(prevCount => prevCount - twelfthCost)
-					setTwelfthCost(prevCost => prevCost + 2e12)
-			}
+		if (count >= twelfthCost) {
+			setTwelfthLevel(prevLevel => prevLevel + 1)
+			setSpeed(prevSpeed => prevSpeed + 1e11)
+			setCount(prevCount => prevCount - twelfthCost)
+			setTwelfthCost(prevCost => prevCost + 2e12)
+		}
 	}
 
+
+	let roundedCount: number = parseInt(count.toFixed(0))
+
+
+	// LOAD STATE FOR COUNT AND SPEED
+
+	
   useEffect(() => {
-
-		// console.log(typeof window)
-
+		
     const savedCount = localStorage.getItem("count");
     const savedSpeed = localStorage.getItem("speed");
 
@@ -196,24 +232,252 @@ const Clicker: React.FC = () => {
     if (savedSpeed) {
       setSpeed(parseInt(savedSpeed));
     }
+
+		// 	console.log("savedCount:", savedCount)
+		// 	console.log("savedSpeed:", savedSpeed)
+
+
   }, []);
-	
-	// useEffect(() => {
-	// 	const savedCount = localStorage.getItem('count');
-  //   if (savedCount) {
-  //     setCount(parseFloat(savedCount));
-  //   }
 
-	// }, [])
 
-	// useEffect(() => {
-	// 	const savedSpeed = localStorage.getItem('speed');
-  //   if (savedSpeed) {
-  //     setSpeed(parseInt(savedSpeed));
-  //   }
-	// }, [])
 
-	let roundedCount: number = parseInt(count.toFixed(0))
+	// LOAD STATE FOR LEVELS
+
+
+	useEffect(() => { 
+    const savedFirstLevel = localStorage.getItem('first level'); 
+    if (savedFirstLevel) { 
+        setFirstLevel(parseInt(savedFirstLevel)); 
+    }
+    
+    const savedSecondLevel = localStorage.getItem('second level'); 
+    if (savedSecondLevel) { 
+        setSecondLevel(parseInt(savedSecondLevel)); 
+    }
+    
+    const savedThirdLevel = localStorage.getItem('third level'); 
+    if (savedThirdLevel) { 
+        setThirdLevel(parseInt(savedThirdLevel)); 
+    }
+    
+    const savedFourthLevel = localStorage.getItem('fourth level'); 
+    if (savedFourthLevel) { 
+        setFourthLevel(parseInt(savedFourthLevel)); 
+    }
+    
+    const savedFifthLevel = localStorage.getItem('fifth level'); 
+    if (savedFifthLevel) { 
+        setFifthLevel(parseInt(savedFifthLevel)); 
+    }
+    
+    const savedSixthLevel = localStorage.getItem('sixth level'); 
+    if (savedSixthLevel) { 
+        setSixthLevel(parseInt(savedSixthLevel)); 
+    }
+    
+    const savedSeventhLevel = localStorage.getItem('seventh level'); 
+    if (savedSeventhLevel) { 
+        setSeventhLevel(parseInt(savedSeventhLevel)); 
+    }
+    
+    const savedEighthLevel = localStorage.getItem('eighth level'); 
+    if (savedEighthLevel) { 
+        setEighthLevel(parseInt(savedEighthLevel)); 
+    }
+    
+    const savedNinthLevel = localStorage.getItem('ninth level'); 
+    if (savedNinthLevel) { 
+        setNinthLevel(parseInt(savedNinthLevel)); 
+    }
+    
+    const savedTenthLevel = localStorage.getItem('tenth level'); 
+    if (savedTenthLevel) { 
+        setTenthLevel(parseInt(savedTenthLevel)); 
+    }
+    
+    const savedEleventhLevel = localStorage.getItem('eleventh level'); 
+    if (savedEleventhLevel) { 
+        setEleventhLevel(parseInt(savedEleventhLevel)); 
+    }
+    
+    const savedTwelfthLevel = localStorage.getItem('twelfth level'); 
+    if (savedTwelfthLevel) { 
+        setTwelfthLevel(parseInt(savedTwelfthLevel)); 
+    }
+	}, [])
+
+
+	// LOAD STATE FOR COSTS
+
+
+	useEffect(() => {
+		const savedFirstCost = localStorage.getItem('first cost');
+		if (savedFirstCost) {
+				setFirstCost(parseInt(savedFirstCost));
+		}
+ 
+		const savedSecondCost = localStorage.getItem('second cost'); 
+		if (savedSecondCost) {
+				setSecondCost(parseInt(savedSecondCost));
+		}
+ 
+		const savedThirdCost = localStorage.getItem('third cost');
+		if (savedThirdCost) {
+				setThirdCost(parseInt(savedThirdCost)); 
+		}
+ 
+		const savedFourthCost = localStorage.getItem('fourth cost');
+		if (savedFourthCost) {
+				setFourthCost(parseInt(savedFourthCost));
+		}
+ 
+		const savedFifthCost = localStorage.getItem('fifth cost');
+		if (savedFifthCost) {
+				setFifthCost(parseInt(savedFifthCost));
+		}
+ 
+		const savedSixthCost = localStorage.getItem('sixth cost');
+		if (savedSixthCost) {
+				setSixthCost(parseInt(savedSixthCost));
+		}
+ 
+		const savedSeventhCost = localStorage.getItem('seventh cost');
+		if (savedSeventhCost) {
+				setSeventhCost(parseInt(savedSeventhCost));
+		}
+ 
+		const savedEighthCost = localStorage.getItem('eighth cost');
+		if (savedEighthCost) {
+				setEighthCost(parseInt(savedEighthCost));
+		}
+ 
+		const savedNinthCost = localStorage.getItem('ninth cost');
+		if (savedNinthCost) {
+				setNinthCost(parseInt(savedNinthCost));
+		}
+ 
+		const savedTenthCost = localStorage.getItem('tenth cost');
+		if (savedTenthCost) {
+				setTenthCost(parseInt(savedTenthCost));
+		}
+ 
+		const savedEleventhCost = localStorage.getItem('eleventh cost');
+		if (savedEleventhCost) {
+				setEleventhCost(parseInt(savedEleventhCost));
+		}
+ 
+		const savedTwelfthCost = localStorage.getItem('twelfth cost');
+		if (savedTwelfthCost) {
+				setTwelfthCost(parseInt(savedTwelfthCost));
+		}
+ 	}, [])
+
+
+	// SAVE STATE FOR LEVELS
+
+
+	useEffect(() => {
+		localStorage.setItem('first level', firstLevel.toString())
+ 	}, [firstLevel]);
+ 
+ 	useEffect(() => {
+		localStorage.setItem('second level', secondLevel.toString())
+ 	}, [secondLevel]);
+ 
+ 	useEffect(() => {
+		localStorage.setItem('third level', thirdLevel.toString())
+ 	}, [thirdLevel]);
+ 
+ 	useEffect(() => {
+		localStorage.setItem('fourth level', fourthLevel.toString())
+ 	}, [fourthLevel]);
+ 
+ 	useEffect(() => {
+		localStorage.setItem('fifth level', fifthLevel.toString())
+ 	}, [fifthLevel]);
+ 
+ 	useEffect(() => {
+		localStorage.setItem('sixth level', sixthLevel.toString())
+ 	}, [sixthLevel]);
+ 
+ 	useEffect(() => {
+		localStorage.setItem('seventh level', seventhLevel.toString())
+ 	}, [seventhLevel]);
+ 
+ 	useEffect(() => {
+		localStorage.setItem('eighth level', eighthLevel.toString())
+ 	}, [eighthLevel]);
+ 
+ 	useEffect(() => {
+		localStorage.setItem('ninth level', ninthLevel.toString())
+ 	}, [ninthLevel]);
+ 
+ 	useEffect(() => {
+		localStorage.setItem('tenth level', tenthLevel.toString())
+ 	}, [tenthLevel]);
+
+ 	useEffect(() => {
+		localStorage.setItem('eleventh level', eleventhLevel.toString())
+ 	}, [eleventhLevel]);
+ 
+ 	useEffect(() => {
+		localStorage.setItem('twelfth level', twelfthLevel.toString())
+ 	}, [twelfthLevel]);
+
+
+	// SAVE STATE FOR COSTS
+
+
+	useEffect(() => {
+		localStorage.setItem('first cost', firstCost.toString())
+ 	}, [firstCost]);
+ 
+ 	useEffect(() => {
+		localStorage.setItem('second cost', secondCost.toString())
+ 	}, [secondCost]);
+ 
+ 	useEffect(() => {
+		localStorage.setItem('third cost', thirdCost.toString())
+ 	}, [thirdCost]);
+ 
+ 	useEffect(() => {
+		localStorage.setItem('fourth cost', fourthCost.toString())
+ 	}, [fourthCost]);
+ 
+ 	useEffect(() => {
+		localStorage.setItem('fifth cost', fifthCost.toString())
+ 	}, [fifthCost]);
+ 
+ 	useEffect(() => {
+		localStorage.setItem('sixth cost', sixthCost.toString())
+ 	}, [sixthCost]);
+ 
+ 	useEffect(() => {
+		localStorage.setItem('seventh cost', seventhCost.toString())
+ 	}, [seventhCost]);
+ 
+ 	useEffect(() => {
+		localStorage.setItem('eighth cost', eighthCost.toString())
+ 	}, [eighthCost]);
+ 
+ 	useEffect(() => {
+		localStorage.setItem('ninth cost', ninthCost.toString())
+ 	}, [ninthCost]);
+ 
+ 	useEffect(() => {
+		localStorage.setItem('tenth cost', tenthCost.toString())
+ 	}, [tenthCost]);
+ 
+ 	useEffect(() => {
+		localStorage.setItem('eleventh cost', eleventhCost.toString())
+ 	}, [eleventhCost]);
+ 
+ 	useEffect(() => {
+		localStorage.setItem('twelfth cost', twelfthCost.toString())
+ 	}, [twelfthCost]);
+
+
+	//SAVE STATE FOR COUNT
 
 	useEffect(() => {
 		
@@ -261,6 +525,10 @@ const Clicker: React.FC = () => {
 		localStorage.setItem('count', roundedCount.toString())
 
   }, [count]);
+
+
+	//SAVE STATE FOR SPEED
+
 
 	useEffect(() => {
     let intervalId = setInterval(() => {
@@ -480,6 +748,17 @@ const Clicker: React.FC = () => {
 					:
 					<ClosedCard></ClosedCard>
 				}
+			</div>
+
+			<div className="mx-auto flex justify-center items-center">
+				
+				<div className="my-4 mx-4 flex">
+					<ClickerButton
+						className="bg-red-500 text-white font-bold hover:bg-red-600"
+						handleClick = { resetProgress }
+						label = "Reset to 0"
+					/>
+				</div>
 			</div>
 			
 				
