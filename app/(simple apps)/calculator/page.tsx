@@ -1,14 +1,9 @@
+// note: the app flow is written below the code
+
 'use client'
 
 import styles from './page.module.css'
 import React, { useState } from 'react';
-
-// interface CalculatorState {
-//     displayValue: string;
-//     firstValue: number | null;
-//     operator: string | null;
-//     waitingForSecondValue: boolean;
-//   }
 
 type firstValueType = number | null
 type operatorType = string | null
@@ -18,7 +13,7 @@ const Calculator: React.FC = () => {
   const [firstValue, setFirstValue] = useState<firstValueType>(null);
   const [operator, setOperator] = useState<operatorType>(null);
   const [waitingForSecondValue, setWaitingForSecondValue] = useState<boolean>(false);
-  
+
   const inputDigit = (digit: number) => {
     if (waitingForSecondValue) {
       setDisplayValue(String(digit));
@@ -85,12 +80,14 @@ const Calculator: React.FC = () => {
         }
     };
 
+    let parsedDisplayValue : number = parseFloat(displayValue)
+
   return (
     <main>
       <div className={styles.calccontainer}>
         <h2>Calculator</h2>
         <div className={styles.calculator}>
-          <input type="text" value={displayValue} readOnly />
+          <input type="text" value={parsedDisplayValue.toLocaleString()} readOnly />
           <div className={styles.cbuttons}>
             <button className={styles.button} onClick={() => inputDigit(7)}>7</button>
             <button className={styles.button} onClick={() => inputDigit(8)}>8</button>
@@ -120,3 +117,10 @@ const Calculator: React.FC = () => {
 };
 
 export default Calculator;
+
+
+// steps:
+// there are three parts of this calc: 
+// 1. Input. 2. Output 3. and the calculator logic behind it
+// Input: 0-9 , +-:x , = , del , AC, and comma
+// Output: display the first number, then second number, then the result

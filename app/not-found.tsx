@@ -9,14 +9,17 @@ export const metadata: Metadata = {
 const NotFound = () => {
     return ( 
         <main>
-            <div className="not-found">
-                <h2>Sorry..</h2>
-                <p>Error 404. This page cannot be found</p>
-                <div className="not-found-link">
-                    <Link href='/'>Back to the homepage</Link>
-                </div>
-          
-            </div> 
+            <div className="my-24 flex justify-center items-center">
+                <div className="not-found">
+                    <h2>Sorry..</h2>
+                    <p>Error 404. This page cannot be found</p>
+                    <div className="not-found-link">
+                        <Link href='/'>Back to the homepage</Link>
+                    </div>
+
+                </div> 
+            </div>
+            
         </main>
      );
 }

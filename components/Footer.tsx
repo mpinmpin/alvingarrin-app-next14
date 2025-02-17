@@ -7,7 +7,7 @@ import Link from 'next/link';
 const Footer = () => {
     return (
       <footer className="mt-[100px] text-center py-[100px] text-[13px]">
-        © Copyright 2024 Alvin Garrin
+        © Copyright 2024-2025 Alvin Garrin
         <div className="flex justify-center items-center">
           <Link href="https://github.com/mpinmpin" target="_blank" rel="noopener noreferrer">
             <DiGithubBadge className= "mx-auto" size={32} />

@@ -48,7 +48,7 @@ export default async function Blogs() {
 						(blog: {
               id: string; 
               title: string; 
-              author: string 
+              author: string;
 							}) => (
             <div className={styles.BlogPreview} key={blog.id}>
               <Link href={`/blogposts/${blog.id}`}>
