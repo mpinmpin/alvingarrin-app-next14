@@ -14,12 +14,12 @@ export const metadata: Metadata = {
 
 async function getBlogs() {
   try {
-    // const res = await fetch('https://alvingarrin.vercel.app/blogs/api', {
-    //   cache: "no-store",
-    // });
-    const res = await fetch('http://localhost:3000/blogposts/api', {
+    const res = await fetch('https://alvingarrin.vercel.app/blogposts/api', {
       cache: "no-store",
     });
+    // const res = await fetch('http://localhost:3000/blogposts/api', {
+    //   cache: "no-store",
+    // });
     
     if (!res.ok) {
       throw new Error('Failed to fetch blog');
