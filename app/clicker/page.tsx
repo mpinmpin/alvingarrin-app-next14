@@ -104,6 +104,19 @@ const Clicker: React.FC = () => {
 		setTenthCost(2e10)
 		setEleventhCost(2e11)
 		setTwelfthCost(2e12)
+
+		setFirstOpened(false)
+		setSecondOpened(false)
+		setThirdOpened(false)
+		setFourthOpened(false)
+		setFifthOpened(false)
+		setSixthOpened(false)
+		setSeventhOpened(false)
+		setEighthOpened(false)
+		setNinthOpened(false) 
+		setTenthOpened(false)
+		setEleventhOpened(false)
+		setTwelfthOpened(false)
 	}
 
 	const addFirstLevel = () => {

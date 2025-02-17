@@ -14,12 +14,12 @@ type ClickerCardProps = {
 const ClickerCard = (props : ClickerCardProps)  => {
   return (
     <Tooltip
-      content="test"
+      content="click here to increase snowflake production"
       placement="bottom"
       delay={200}
       closeDelay={200}
-      className="bg-blue-300 text-black  p-2 h-12 w-16 border-2 rounded-md over overflow-hidden"
-      style={{ fontSize: '10px' }}
+      className="bg-blue-500 text-white  p-2 h-12 w-28 border-2 rounded-md over overflow-hidden"
+      style={{ fontSize: '9px' }}
     >
       <div 
         onClick={props.handleClick}
