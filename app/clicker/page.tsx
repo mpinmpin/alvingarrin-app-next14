@@ -531,13 +531,10 @@ const Clicker: React.FC = () => {
 			setTwelfthOpened(true)
 		}
 
-		// console.log(count)
-
-		
 		// Save current count to localStorage
 		localStorage.setItem('count', roundedCount.toString())
 
-  }, [count]);
+  }, [roundedCount]);
 
 
 	//SAVE STATE FOR SPEED
