@@ -324,8 +324,12 @@ main {
   padding-top: 5px;
   font-size: 30px;
 }
-.home-about:hover {
+.home-about {
   color: var(--darklimegreen);
+  text-decoration: underline;
+}
+.home-about:hover {
+  color: var(--limegreen);
 }
 .about {
   /* max-width: 800px; */
