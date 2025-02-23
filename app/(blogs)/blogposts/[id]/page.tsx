@@ -12,11 +12,11 @@ export const metadata: Metadata = {
 
 async function getData(id: string) {
   // Use mock data during build
-  if (process.env.NODE_ENV === 'production') {
-    const blog = mockBlogs.find((blog) => blog.id.toString() === id);
-    if (!blog) notFound();
-    return blog;
-  }
+  // if (process.env.NODE_ENV === 'production') {
+  //   const blog = mockBlogs.find((blog) => blog.id.toString() === id);
+  //   if (!blog) notFound();
+  //   return blog;
+  // }
 
   // Use real API in development
   const res = await fetch(`https://alvingarrin.vercel.app/blogposts/api/${id}`);
@@ -31,11 +31,11 @@ async function getData(id: string) {
 
 export async function generateStaticParams() {
   // Use mock data during build
-  if (process.env.NODE_ENV === 'production') {
-    return mockBlogs.map((blog) => ({
-      id: blog.id.toString(),
-    }));
-  }
+  // if (process.env.NODE_ENV === 'production') {
+  //   return mockBlogs.map((blog) => ({
+  //     id: blog.id.toString(),
+  //   }));
+  // }
 
   // Use real API in development
   const res = await fetch('https://alvingarrin.vercel.app/blogposts/api');
