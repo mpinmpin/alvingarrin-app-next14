@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 import { HiOutlineTrash } from "react-icons/hi";
 import { Tooltip } from "@nextui-org/tooltip";
@@ -20,11 +20,13 @@ export default function DeleteBlog({ id }: { id: string }): JSX.Element {
 
     if (confirmed) {
       try {
-        const res = await fetch(`http://localhost:3000/blogposts/api?id=${id}`, {
+        const res = await fetch(`https://alvingarrin.vercel.app/blogposts/api?id=${id}`, {
+        // const res = await fetch(`http://localhost:3000/blogposts/api?id=${id}`, {
           method: "DELETE"
         });
 
         if (res.ok) {
+          console.log("Blog deleted")
           router.refresh();
           // Consider showing a success notification to the user
         } else {
