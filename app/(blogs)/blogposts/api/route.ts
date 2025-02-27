@@ -21,12 +21,14 @@ export async function GET() {
 
   try {
     const data = await Blog.find();
-    return NextResponse.json(data, { headers: { 'Access-Control-Allow-Origin': '*' } }); // Add CORS header
+    return NextResponse.json(data, { 
+      headers: { 'Access-Control-Allow-Origin': '*' } }); 
   } catch (error) {
     console.error('Error fetching data:', error);
     return NextResponse.json(
       { message: 'Internal server error' },
-      { status: 500, headers: { 'Access-Control-Allow-Origin': '*' } } // Add CORS header
+      { status: 500, 
+        headers: { 'Access-Control-Allow-Origin': '*' } } 
     );
   }
 }
@@ -41,12 +43,18 @@ export async function POST(req: NextRequest) {
     body,
     author,
   });
-  return NextResponse.json({ message: 'New blog post added successfully' }, { headers: { 'Access-Control-Allow-Origin': '*' } });//Add CORS header
+  return NextResponse.json(
+    { message: 'New blog post added successfully' }, 
+    { headers: { 'Access-Control-Allow-Origin': '*' }}
+  );
 }
 
 export async function DELETE(req: NextRequest) {
   const id = req.nextUrl.searchParams.get('id');
   await connectDB();
   await Blog.findOneAndDelete({ id: id });
-  return NextResponse.json({ message: 'Topic deleted' }, { status: 200, headers: { 'Access-Control-Allow-Origin': '*' } });//Add CORS header
+  return NextResponse.json(
+    { message: 'Topic deleted' }, 
+    { status: 200, headers: { 'Access-Control-Allow-Origin': '*' } }
+  );
 }
